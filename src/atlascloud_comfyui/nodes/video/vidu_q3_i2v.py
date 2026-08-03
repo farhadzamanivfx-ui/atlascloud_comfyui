@@ -18,7 +18,7 @@ class AtlasViduQ3ImageToVideo:
                 "atlas_client": ("ATLAS_CLIENT",),
                 "image": ("STRING", {"default": "", "tooltip": "Input image URL or base64 (PNG/JPEG/JPG/WebP, max 50MB)"}),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt (max 1500 chars)"}),
-                "duration": ([4, 8], {"default": 4, "tooltip": "Duration (seconds)"}),
+                "duration": (["4", "8"], {"default": "4", "tooltip": "Duration (seconds)"}),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 2**31 - 1, "tooltip": "Random seed"}),
                 "movement_amplitude": (
                     ["auto", "small", "medium", "large"],

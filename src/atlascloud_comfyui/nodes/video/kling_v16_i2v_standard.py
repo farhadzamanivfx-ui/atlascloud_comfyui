@@ -21,7 +21,7 @@ class AtlasKlingV16I2VStandard:
             },
             "optional": {
                 "negative_prompt": ("STRING", {"multiline": True, "default": "", "tooltip": "Negative prompt"}),
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "guidance_scale": (
                     "FLOAT",
                     {"default": 7.5, "min": 0.0, "max": 20.0, "tooltip": "Guidance scale"},

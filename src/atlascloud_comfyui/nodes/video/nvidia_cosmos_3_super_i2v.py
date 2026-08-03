@@ -25,7 +25,7 @@ class AtlasCosmos3SuperImageToVideo:
                     ["square_hd", "square", "portrait_4_3", "portrait_16_9", "landscape_4_3", "landscape_16_9"],
                     {"default": "landscape_16_9", "tooltip": "Output resolution preset"},
                 ),
-                "duration": ([1, 2, 3, 4, 5, 6, 7], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["1", "2", "3", "4", "5", "6", "7"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "num_inference_steps": ("INT", {"default": 28, "min": 1, "max": 50, "tooltip": "Inference steps"}),
                 "guidance_scale": ("FLOAT", {"default": 6.0, "min": 1.0, "max": 20.0, "tooltip": "Guidance scale"}),
                 "randomize_seed": ("BOOLEAN", {"default": True, "tooltip": "开启后每次生成随机结果；关闭后使用下方固定 seed"}),

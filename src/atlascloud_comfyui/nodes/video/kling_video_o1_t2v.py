@@ -18,7 +18,7 @@ class AtlasKlingVideoO1TextToVideo:
                 "atlas_client": ("ATLAS_CLIENT",),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt"}),
                 "aspect_ratio": (["16:9", "9:16", "1:1"], {"default": "16:9", "tooltip": "Aspect ratio"}),
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
             },
             "optional": {
                 "poll_interval_sec": ("FLOAT", {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"}),

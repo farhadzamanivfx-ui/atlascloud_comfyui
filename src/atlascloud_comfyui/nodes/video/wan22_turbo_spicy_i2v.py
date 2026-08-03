@@ -19,7 +19,7 @@ class AtlasWan22TurboSpicyImageToVideo:
                 "image": ("STRING", {"default": "", "tooltip": "Input image URL or base64"}),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt"}),
                 "resolution": (["480p", "720p", "1080p"], {"default": "480p", "tooltip": "Resolution"}),
-                "duration": ([5, 8], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "8"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "seed": ("INT", {"default": -1, "min": -1, "max": 2**31 - 1, "tooltip": "Random if -1"}),
             },
             "optional": {

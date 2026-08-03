@@ -18,7 +18,7 @@ class AtlasKlingV25TurboProImageToVideo:
                 "atlas_client": ("ATLAS_CLIENT",),
                 "image": ("STRING", {"default": "", "tooltip": "Input image URL (jpg/jpeg/png, max 10MB)"}),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt (max 2500 chars)"}),
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "guidance_scale": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01, "tooltip": "Guidance scale"}),
             },
             "optional": {

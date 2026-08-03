@@ -20,7 +20,7 @@ class AtlasWan22SpicyVideoExtendLora:
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Extend instruction"}),
             },
             "optional": {
-                "duration": ([5, 8], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "8"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "resolution": (["480p", "720p"], {"default": "480p", "tooltip": "Resolution"}),
                 "seed": (
                     "INT",

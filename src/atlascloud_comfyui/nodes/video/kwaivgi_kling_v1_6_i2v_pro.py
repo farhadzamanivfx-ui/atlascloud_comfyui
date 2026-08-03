@@ -22,7 +22,7 @@ class AtlasKwaivgiKlingV16I2VPro:
             "optional": {
                 "negative_prompt": ("STRING", {"multiline": True, "tooltip": 'The negative prompt for the generation.'}),
                 "end_image": ("STRING", {"default": "", "tooltip": 'Tail frame of the video; Supported image formats include.jpg/.jpeg/.png; The image file size cannot exceed 10MB, and the image resolution should not be less than 300*300px.'}),
-                "duration": ([5, 10], {"default": 5, "tooltip": 'The duration of the generated media in seconds.'}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": 'The duration of the generated media in seconds.'}),
                 "poll_interval_sec": ("FLOAT", {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"}),
                 "timeout_sec": ("INT", {"default": 900, "min": 30, "max": 7200, "tooltip": "Timeout (seconds)"}),
             },

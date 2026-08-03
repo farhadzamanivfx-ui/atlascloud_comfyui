@@ -27,8 +27,8 @@ class AtlasSeedance20MiniTextToVideo:
             },
             "optional": {
                 "duration": (
-                    [-1, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
-                    {"default": 5, "tooltip": "Duration (seconds), or -1 for auto"},
+                    ["-1", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"],
+                    {"default": "5", "tooltip": "Duration (seconds), or -1 for auto"},
                 ),
                 "resolution": (
                     ["480p", "720p", "720p-SR", "1080p-SR", "1440p-SR"],

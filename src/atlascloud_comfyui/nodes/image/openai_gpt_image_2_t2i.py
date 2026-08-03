@@ -20,8 +20,8 @@ class AtlasOpenAIGPTImage2TextToImage:
             },
             "optional": {
                 "size": (
-                    ["1024x1024", "1024x1536", "1536x1024"],
-                    {"default": "1024x1024", "tooltip": "The size of the generated image in pixels (width x height)."},
+                    ["1024x1024", "1024x768", "768x1024", "1024x1536", "1536x1024", "2048x2048", "2048x1152", "1152x2048", "2560x1088", "1088x2560", "2880x2160", "2160x2880", "3840x2160", "2160x3840"],
+                    {"default": "1024x1024", "tooltip": "The size of the generated image in pixels (width x height). Includes 2K/4K tiers."},
                 ),
                 "quality": (
                     ["low", "medium", "high"],
@@ -30,6 +30,14 @@ class AtlasOpenAIGPTImage2TextToImage:
                 "output_format": (
                     ["jpeg", "png"],
                     {"default": "jpeg", "tooltip": "The format of the output image."},
+                ),
+                "moderation": (
+                    ["auto", "low"],
+                    {"default": "low", "tooltip": "Content moderation strictness."},
+                ),
+                "enable_sync_mode": (
+                    "BOOLEAN",
+                    {"default": False, "tooltip": "If true, server may try to return result synchronously"},
                 ),
                 "enable_base64_output": (
                     "BOOLEAN",
@@ -53,6 +61,8 @@ class AtlasOpenAIGPTImage2TextToImage:
         size: str = "1024x1024",
         quality: str = "medium",
         output_format: str = "jpeg",
+        moderation: str = "low",
+        enable_sync_mode: bool = False,
         enable_base64_output: bool = False,
         poll_interval_sec: float = 2.0,
         timeout_sec: int = 300,
@@ -69,6 +79,8 @@ class AtlasOpenAIGPTImage2TextToImage:
             "size": size,
             "quality": quality,
             "output_format": output_format,
+            "moderation": moderation,
+            "enable_sync_mode": bool(enable_sync_mode),
             "enable_base64_output": bool(enable_base64_output),
         }
 

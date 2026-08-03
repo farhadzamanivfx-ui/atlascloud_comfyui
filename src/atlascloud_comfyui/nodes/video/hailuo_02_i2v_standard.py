@@ -32,7 +32,7 @@ class AtlasHailuo02I2VStandard:
                 ),
             },
             "optional": {
-                "duration": ([6, 10], {"default": 6, "tooltip": "Duration (seconds)"}),
+                "duration": (["6", "10"], {"default": "6", "tooltip": "Duration (seconds)"}),
                 "enable_prompt_expansion": (
                     "BOOLEAN",
                     {

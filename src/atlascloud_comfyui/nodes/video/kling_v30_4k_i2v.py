@@ -19,7 +19,7 @@ class AtlasKlingV304KImageToVideo:
                 # Kling I2V: base image is required
                 "image": ("STRING", {"default": "", "tooltip": "First frame image URL or base64"}),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt"}),
-                "duration": ([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "cfg_scale": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01, "tooltip": "Classifier-free guidance scale"}),
                 "sound": ("BOOLEAN", {"default": True, "tooltip": "Generate sound track"}),
             },

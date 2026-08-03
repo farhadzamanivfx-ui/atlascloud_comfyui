@@ -36,7 +36,7 @@ class AtlasVan26ImageToVideo:
             "optional": {
                 "negative_prompt": ("STRING", {"multiline": True, "default": "", "tooltip": "Negative prompt"}),
                 "audio": ("STRING", {"default": "", "tooltip": "Audio URL (optional)"}),
-                "duration": ([5, 10, 15], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10", "15"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "poll_interval_sec": (
                     "FLOAT",
                     {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"},

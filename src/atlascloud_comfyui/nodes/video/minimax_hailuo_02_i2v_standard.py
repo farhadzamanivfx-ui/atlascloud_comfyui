@@ -20,7 +20,7 @@ class AtlasMinimaxHailuo02I2VStandard:
                 "prompt": ("STRING", {"multiline": True, "tooltip": 'Generate a description of the video.'}),
             },
             "optional": {
-                "duration": ([6, 10], {"default": 6, "tooltip": 'The duration of the generated media in seconds.'}),
+                "duration": (["6", "10"], {"default": "6", "tooltip": 'The duration of the generated media in seconds.'}),
                 "enable_prompt_expansion": ("BOOLEAN", {"default": False, "tooltip": 'The model automatically optimizes incoming prompts to enhance output quality. This also activates the safety checker, which ensures content safety by detecting and filtering potential risks.'}),
                 "poll_interval_sec": ("FLOAT", {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"}),
                 "timeout_sec": ("INT", {"default": 900, "min": 30, "max": 7200, "tooltip": "Timeout (seconds)"}),

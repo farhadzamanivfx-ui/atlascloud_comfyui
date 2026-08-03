@@ -23,8 +23,8 @@ class AtlasWan22TurboSpicyImageToVideoLora:
                     {"default": "480p", "tooltip": "Resolution"},
                 ),
                 "duration": (
-                    [5, 8],
-                    {"default": 5, "tooltip": "Duration (seconds)"},
+                    ["5", "8"],
+                    {"default": "5", "tooltip": "Duration (seconds)"},
                 ),
                 "seed": (
                     "INT",

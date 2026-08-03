@@ -22,7 +22,7 @@ class AtlasWan25VideoExtend:
             "optional": {
                 "negative_prompt": ("STRING", {"multiline": True, "default": "", "tooltip": "Negative prompt"}),
                 "audio": ("STRING", {"default": "", "tooltip": "Optional audio URL"}),
-                "duration": ([5, 6, 7, 8, 9, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "6", "7", "8", "9", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "resolution": (["480p", "720p", "1080p"], {"default": "720p", "tooltip": "Resolution"}),
                 "seed": (
                     "INT",

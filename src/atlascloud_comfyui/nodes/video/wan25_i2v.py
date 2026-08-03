@@ -19,7 +19,7 @@ class AtlasWAN25ImageToVideo:
                 "image": ("STRING", {"default": "", "tooltip": "Input image URL or base64"}),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt"}),
                 "resolution": (["480p", "720p", "1080p"], {"default": "720p", "tooltip": "Resolution"}),
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "enable_prompt_expansion": ("BOOLEAN", {"default": False, "tooltip": "Enable prompt expansion"}),
                 "generate_audio": ("BOOLEAN", {"default": True, "tooltip": "Generate audio"}),
                 "seed": ("INT", {"default": -1, "min": -1, "max": 2**31 - 1, "tooltip": "Random if -1"}),

@@ -37,6 +37,10 @@ class AtlasNanoBananaTextToImage:
                     ["png", "jpeg"],
                     {"default": "png", "tooltip": "Output image format"},
                 ),
+                "media_resolution": (
+                    ["default", "low", "medium", "high"],
+                    {"default": "default", "tooltip": "Processing resolution for input/reference media."},
+                ),
                 "poll_interval_sec": (
                     "FLOAT",
                     {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"},
@@ -58,6 +62,7 @@ class AtlasNanoBananaTextToImage:
         output_format: str = "png",
         randomize_seed: bool = True,
         seed: int = 0,
+        media_resolution: str = "default",
         poll_interval_sec: float = 2.0,
         timeout_sec: int = 300,
     ) -> Tuple[str, str]:
@@ -69,6 +74,7 @@ class AtlasNanoBananaTextToImage:
 
         payload: Dict[str, Any] = {
             "model": "google/nano-banana/text-to-image",
+            "media_resolution": media_resolution,
             "prompt": p,
             "aspect_ratio": aspect_ratio,
             "enable_base64_output": bool(enable_base64_output),

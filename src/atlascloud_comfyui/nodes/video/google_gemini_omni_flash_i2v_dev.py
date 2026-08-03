@@ -20,7 +20,7 @@ class AtlasGeminiOmniFlashImageToVideoDev:
                 "images": ("STRING", {"multiline": True, "default": "", "tooltip": "1-7 image URLs/base64, one per line"}),
             },
             "optional": {
-                "duration": ([4, 6, 8, 10], {"default": 8, "tooltip": "Duration (seconds)"}),
+                "duration": (["4", "6", "8", "10"], {"default": "8", "tooltip": "Duration (seconds)"}),
                 "aspect_ratio": (["16:9", "9:16"], {"default": "16:9", "tooltip": "Aspect ratio"}),
                 "resolution": (["720p", "1080p", "4k"], {"default": "720p", "tooltip": "Resolution"}),
                 "seed": ("INT", {"default": -1, "min": -1, "max": 2**31 - 1, "tooltip": "Random if -1"}),

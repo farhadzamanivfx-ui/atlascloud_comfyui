@@ -30,7 +30,7 @@ class AtlasWAN25TextToVideoFast:
                     ],
                     {"default": "1280*720", "tooltip": "Size (width*height)"},
                 ),
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "enable_prompt_expansion": (
                     "BOOLEAN",
                     {"default": False, "tooltip": "Enable prompt optimizer"},

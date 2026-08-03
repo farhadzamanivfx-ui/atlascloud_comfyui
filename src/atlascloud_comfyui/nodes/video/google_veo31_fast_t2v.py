@@ -20,7 +20,7 @@ class AtlasVeo31FastTextToVideo:
             },
             "optional": {
                 "aspect_ratio": (["16:9", "9:16"], {"default": "16:9", "tooltip": "Aspect ratio"}),
-                "duration": ([4, 6, 8], {"default": 4, "tooltip": "Duration (seconds)"}),
+                "duration": (["4", "6", "8"], {"default": "4", "tooltip": "Duration (seconds)"}),
                 "resolution": (["720p", "1080p"], {"default": "1080p", "tooltip": "Resolution"}),
                 "generate_audio": ("BOOLEAN", {"default": False, "tooltip": "Generate audio"}),
                 "negative_prompt": ("STRING", {"multiline": True, "default": "", "tooltip": "Negative prompt"}),

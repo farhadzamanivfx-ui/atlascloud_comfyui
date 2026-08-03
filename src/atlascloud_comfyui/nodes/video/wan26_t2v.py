@@ -17,7 +17,7 @@ class AtlasWAN26TextToVideo:
                 "atlas_client": ("ATLAS_CLIENT",),  # <--- connect from AtlasClientNode
                 "prompt": ("STRING", {"multiline": True}),
                 "negative_prompt": ("STRING", {"multiline": True, "default": ""}),
-                "duration": ([5, 10, 15], {"default": 15}),
+                "duration": (["5", "10", "15"], {"default": "15"}),
                 "size": (
                     [
                         "1280*720",

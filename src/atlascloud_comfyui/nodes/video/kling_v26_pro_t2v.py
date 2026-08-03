@@ -19,7 +19,7 @@ class AtlasKlingV26ProTextToVideo:
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt"}),
                 "negative_prompt": ("STRING", {"multiline": True, "default": "", "tooltip": "Negative prompt"}),
                 "aspect_ratio": (["16:9", "9:16", "1:1"], {"default": "16:9", "tooltip": "Aspect ratio"}),
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "cfg_scale": ("FLOAT", {"default": 0.50, "min": 0.00, "max": 1.00, "step": 0.01, "tooltip": "CFG scale"}),
                 "sound": ("BOOLEAN", {"default": True, "tooltip": "Generate sound/audio"}),
             },

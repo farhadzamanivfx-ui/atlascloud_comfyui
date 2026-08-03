@@ -36,7 +36,7 @@ class AtlasWAN26VideoToVideo:
             },
             "optional": {
                 "negative_prompt": ("STRING", {"multiline": True, "default": ""}),
-                "duration": ([5, 10], {"default": 5}),
+                "duration": (["5", "10"], {"default": "5"}),
                 "enable_prompt_expansion": ("BOOLEAN", {"default": True}),
                 "shot_type": (["multi", "single"], {"default": "multi"}),
                 "seed": ("INT", {"default": -1, "min": -1, "max": 2**31 - 1}),

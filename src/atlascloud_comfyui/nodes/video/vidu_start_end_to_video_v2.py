@@ -19,7 +19,7 @@ class AtlasViduStartEndToVideoV2:
                 "start_image": ("STRING", {"default": "", "tooltip": "Start image URL/base64"}),
                 "end_image": ("STRING", {"default": "", "tooltip": "End image URL/base64"}),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt"}),
-                "duration": ([4, 8], {"default": 4, "tooltip": "Duration (seconds)"}),
+                "duration": (["4", "8"], {"default": "4", "tooltip": "Duration (seconds)"}),
                 "movement_amplitude": (
                     ["auto", "small", "medium", "large"],
                     {"default": "auto", "tooltip": "Movement amplitude"},

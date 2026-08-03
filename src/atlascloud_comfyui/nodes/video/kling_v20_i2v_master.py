@@ -18,7 +18,7 @@ class AtlasKlingV20I2VMaster:
                 "atlas_client": ("ATLAS_CLIENT",),
                 "image": ("STRING", {"default": "", "tooltip": "First frame image URL/base64"}),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt"}),
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "guidance_scale": (
                     "FLOAT",
                     {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01, "tooltip": "Guidance scale"},

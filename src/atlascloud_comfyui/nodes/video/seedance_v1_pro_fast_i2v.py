@@ -20,8 +20,8 @@ class AtlasSeedanceV1ProFastImageToVideo:
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt"}),
                 "resolution": (["480p", "720p", "1080p"], {"default": "480p", "tooltip": "Resolution"}),
                 "duration": (
-                    [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-                    {"default": 5, "tooltip": "Duration (seconds)"},
+                    ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+                    {"default": "5", "tooltip": "Duration (seconds)"},
                 ),
                 "aspect_ratio": (
                     ["21:9", "16:9", "4:3", "1:1", "3:4", "9:16"],

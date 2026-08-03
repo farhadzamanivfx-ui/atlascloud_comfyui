@@ -20,7 +20,7 @@ class AtlasVeo31LiteImageToVideo:
                 "image": ("STRING", {"default": "", "tooltip": "First frame image (URL/base64)"}),
             },
             "optional": {
-                "duration": ([4, 6, 8], {"default": 8, "tooltip": "Duration (seconds)"}),
+                "duration": (["4", "6", "8"], {"default": "8", "tooltip": "Duration (seconds)"}),
                 "aspect_ratio": (["16:9", "9:16"], {"default": "16:9", "tooltip": "Aspect ratio"}),
                 "resolution": (["720p", "1080p"], {"default": "720p", "tooltip": "Resolution"}),
                 "seed": ("INT", {"default": -1, "min": -1, "max": 2**31 - 1, "tooltip": "Random if -1"}),

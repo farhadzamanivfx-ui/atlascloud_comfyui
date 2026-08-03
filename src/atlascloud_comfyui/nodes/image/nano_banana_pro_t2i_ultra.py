@@ -21,7 +21,7 @@ class AtlasNanoBananaProTextToImageUltra:
                     ["16:9", "9:16", "1:1", "4:3", "3:4", "2:3", "3:2", "4:5", "5:4", "21:9"],
                     {"default": "16:9", "tooltip": "Aspect ratio"},
                 ),
-                "resolution": (["2k", "4k"], {"default": "4k", "tooltip": "Resolution preset"}),
+                "resolution": (["4k", "8k"], {"default": "4k", "tooltip": "Resolution preset"}),
                 "output_format": (["png", "jpeg"], {"default": "png", "tooltip": "Output format"}),
                 "enable_base64_output": ("BOOLEAN", {"default": False, "tooltip": "Return base64 instead of URL if supported"}),
                 "enable_sync_mode": ("BOOLEAN", {"default": False, "tooltip": "If true, server may try to return result synchronously"}),

@@ -27,7 +27,7 @@ class AtlasKlingV30StdImageToVideo:
                 "atlas_client": ("ATLAS_CLIENT", {"tooltip": "Connect from 'AtlasCloud Client (API Key/Base URL)' node"}),
                 "image_url": ("STRING", {"default": "", "tooltip": "Start image: URL or base64 (data URL)."}),
                 "prompt": ("STRING", {"default": "", "multiline": True, "tooltip": "Prompt"}),
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "cfg_scale": ("FLOAT", {"default": 0.5, "min": 0.0, "max": 1.0, "step": 0.01, "tooltip": "CFG scale"}),
                 "sound": ("BOOLEAN", {"default": False, "tooltip": "Generate sound/audio (if supported)"}),
             },

@@ -21,7 +21,7 @@ class AtlasKlingVideoO34KImageToVideo:
             },
             "optional": {
                 "end_image": ("STRING", {"default": "", "tooltip": "Last frame image URL (optional)"}),
-                "duration": ([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "sound": ("BOOLEAN", {"default": True, "tooltip": "Automatically add audio to the generated video"}),
                 "poll_interval_sec": ("FLOAT", {"default": 2.0, "min": 0.5, "max": 10.0}),
                 "timeout_sec": ("INT", {"default": 900, "min": 30, "max": 7200}),

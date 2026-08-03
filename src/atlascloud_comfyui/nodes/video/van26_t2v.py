@@ -27,7 +27,7 @@ class AtlasVan26TextToVideo:
                     ],
                     {"default": "1920*1080", "tooltip": "Size (width*height)"},
                 ),
-                "duration": ([5, 10, 15], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10", "15"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "shot_type": (["multi", "single"], {"default": "multi", "tooltip": "Shot type"}),
                 "enable_prompt_expansion": (
                     "BOOLEAN",

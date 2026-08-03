@@ -18,7 +18,7 @@ class AtlasKlingV30TurboImageToVideo:
                 "atlas_client": ("ATLAS_CLIENT",),
                 # Kling I2V: base image is required
                 "image": ("STRING", {"default": "", "tooltip": "First frame image URL or base64"}),
-                "duration": ([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "resolution": (["720p", "1080p"], {"default": "1080p", "tooltip": "Output resolution"}),
             },
             "optional": {

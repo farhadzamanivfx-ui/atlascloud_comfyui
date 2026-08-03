@@ -29,6 +29,17 @@ class AtlasNanoBanana2Edit:
             "optional": {
                 "randomize_seed": ("BOOLEAN", {"default": True, "tooltip": "开启后每次生成随机结果；关闭后使用下方固定 seed"}),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 4294967295, "tooltip": "固定 seed（仅在随机开关关闭时生效）"}),
+                "enable_sync_mode": ("BOOLEAN", {"default": False, "tooltip": "If true, server may try to return result synchronously"}),
+                "enable_web_search": ("BOOLEAN", {"default": False, "tooltip": "Enable web search grounding"}),
+                "enable_image_search": ("BOOLEAN", {"default": False, "tooltip": "Enable image search grounding"}),
+                "media_resolution": (
+                    ["default", "low", "medium", "high"],
+                    {"default": "default", "tooltip": "Processing resolution for input/reference media."},
+                ),
+                "thinking_level": (
+                    ["default", "high", "minimal"],
+                    {"default": "default", "tooltip": "Reasoning effort for generation (Nano Banana 2)."},
+                ),
                 "poll_interval_sec": ("FLOAT", {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"}),
                 "timeout_sec": ("INT", {"default": 300, "min": 30, "max": 7200, "tooltip": "Timeout (seconds)"}),
             },
@@ -45,6 +56,11 @@ class AtlasNanoBanana2Edit:
         enable_base64_output: bool,
         randomize_seed: bool = True,
         seed: int = 0,
+        enable_sync_mode: bool = False,
+        enable_web_search: bool = False,
+        enable_image_search: bool = False,
+        media_resolution: str = "default",
+        thinking_level: str = "default",
         poll_interval_sec: float = 2.0,
         timeout_sec: int = 300,
     ) -> Tuple[str, str]:
@@ -60,6 +76,11 @@ class AtlasNanoBanana2Edit:
 
         payload: Dict[str, Any] = {
             "model": "google/nano-banana-2/edit",
+            "enable_sync_mode": bool(enable_sync_mode),
+            "enable_web_search": bool(enable_web_search),
+            "enable_image_search": bool(enable_image_search),
+            "media_resolution": media_resolution,
+            "thinking_level": thinking_level,
             "images": images,
             "prompt": prompt,
             "aspect_ratio": aspect_ratio,

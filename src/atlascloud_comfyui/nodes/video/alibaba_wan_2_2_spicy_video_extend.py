@@ -20,7 +20,7 @@ class AtlasWan22SpicyVideoExtend:
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Extend instruction"}),
             },
             "optional": {
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "resolution": (["480p", "720p"], {"default": "480p", "tooltip": "Resolution"}),
                 "seed": ("INT", {"default": -1, "min": -1, "max": 2**31 - 1, "tooltip": "Random if -1"}),
                 "poll_interval_sec": ("FLOAT", {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"}),

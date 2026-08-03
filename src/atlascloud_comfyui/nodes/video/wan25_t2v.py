@@ -23,7 +23,7 @@ class AtlasWAN25TextToVideo:
                 "atlas_client": ("ATLAS_CLIENT",),
                 "prompt": ("STRING", {"multiline": True}),
                 "negative_prompt": ("STRING", {"multiline": True, "default": ""}),
-                "duration": ([5, 10], {"default": 5}),
+                "duration": (["5", "10"], {"default": "5"}),
                 "size": (
                     ["1280*720", "1920*1080", "720*1280", "1080*1920", "832*480", "480*832"],
                     {"default": "1280*720", "tooltip": "Resolution"},

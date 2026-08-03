@@ -24,8 +24,8 @@ class AtlasWAN25ImageToVideoFast:
                 "negative_prompt": ("STRING", {"multiline": True, "default": "", "tooltip": "Negative prompt"}),
                 "audio": ("STRING", {"default": "", "tooltip": "Audio URL (optional)"}),
                 "duration": (
-                    [5, 10],
-                    {"default": 5, "tooltip": "Duration (seconds)"},
+                    ["5", "10"],
+                    {"default": "5", "tooltip": "Duration (seconds)"},
                 ),
                 "enable_prompt_expansion": (
                     "BOOLEAN",

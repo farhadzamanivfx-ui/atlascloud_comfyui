@@ -32,8 +32,8 @@ class AtlasWan22TurboImageToVideo:
                     {"default": "720p", "tooltip": "Resolution"},
                 ),
                 "duration": (
-                    [5],
-                    {"default": 5, "tooltip": "Duration (seconds)"},
+                    ["5"],
+                    {"default": "5", "tooltip": "Duration (seconds)"},
                 ),
                 "seed": (
                     "INT",

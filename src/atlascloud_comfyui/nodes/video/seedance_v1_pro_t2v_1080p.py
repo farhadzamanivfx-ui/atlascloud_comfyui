@@ -17,7 +17,7 @@ class AtlasSeedanceV1ProT2V1080p:
             "required": {
                 "atlas_client": ("ATLAS_CLIENT",),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt"}),
-                "duration": ([5, 10], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "aspect_ratio": (["16:9", "9:16", "1:1", "21:9", "1:1", "4:3", "3:4"], {"default": "16:9", "tooltip": "Aspect ratio"}),
                 "camera_fixed": ("BOOLEAN", {"default": False, "tooltip": "Fix camera (no camera motion)"}),
                 "seed": ("INT", {"default": -1, "min": -1, "max": 2**31 - 1, "tooltip": "Random if -1"}),

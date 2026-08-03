@@ -28,6 +28,15 @@ class AtlasNanoBananaProTextToImage:
                 "seed": ("INT", {"default": 0, "min": 0, "max": 4294967295, "tooltip": "固定 seed（仅在随机开关关闭时生效）"}),
                 "enable_base64_output": ("BOOLEAN", {"default": False, "tooltip": "Return base64 instead of URL if supported"}),
                 "enable_sync_mode": ("BOOLEAN", {"default": False, "tooltip": "If true, server may try to return result synchronously"}),
+                "enable_web_search": ("BOOLEAN", {"default": False, "tooltip": "Enable web search grounding"}),
+                "output_format": (
+                    ["default", "png", "jpeg"],
+                    {"default": "default", "tooltip": "Output image format."},
+                ),
+                "media_resolution": (
+                    ["default", "low", "medium", "high"],
+                    {"default": "default", "tooltip": "Processing resolution for input/reference media."},
+                ),
                 "poll_interval_sec": ("FLOAT", {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"}),
                 "timeout_sec": ("INT", {"default": 300, "min": 30, "max": 7200, "tooltip": "Timeout (seconds)"}),
             },
@@ -43,6 +52,9 @@ class AtlasNanoBananaProTextToImage:
         enable_sync_mode: bool = False,
         randomize_seed: bool = True,
         seed: int = 0,
+        enable_web_search: bool = False,
+        output_format: str = "default",
+        media_resolution: str = "default",
         poll_interval_sec: float = 2.0,
         timeout_sec: int = 300,
     ) -> Tuple[str, str]:
@@ -50,6 +62,9 @@ class AtlasNanoBananaProTextToImage:
 
         payload: Dict[str, Any] = {
             "model": "google/nano-banana-pro/text-to-image",
+            "enable_web_search": bool(enable_web_search),
+            "output_format": output_format,
+            "media_resolution": media_resolution,
             "prompt": prompt,
             "aspect_ratio": aspect_ratio,
             "resolution": resolution,

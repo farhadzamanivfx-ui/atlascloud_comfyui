@@ -23,7 +23,7 @@ class AtlasWAN26ImageToVideo:
             "optional": {
                 "audio": ("STRING", {"default": "", "tooltip": "Optional audio URL"}),
                 "negative_prompt": ("STRING", {"multiline": True, "default": "", "tooltip": "Negative prompt"}),
-                "duration": ([5, 10, 15], {"default": 5, "tooltip": "Duration (seconds)"}),
+                "duration": (["5", "10", "15"], {"default": "5", "tooltip": "Duration (seconds)"}),
                 "enable_prompt_expansion": ("BOOLEAN", {"default": True, "tooltip": "Enable prompt optimizer"}),
                 "shot_type": (["multi", "single"], {"default": "multi", "tooltip": "Shot type (multi requires prompt expansion)"}),
                 "generate_audio": ("BOOLEAN", {"default": True, "tooltip": "Auto add audio"}),

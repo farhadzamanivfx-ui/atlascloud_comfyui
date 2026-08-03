@@ -27,14 +27,19 @@ class AtlasNanoBanana2LiteReferenceToImage:
                 "video_fps": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 24.0, "tooltip": "FPS of the video clip"}),
                 "images": ("STRING", {"multiline": True, "default": "", "tooltip": "Optional 0-10 reference image URLs/base64, one per line"}),
                 "aspect_ratio": (
-                    ["1:1", "3:2", "2:3", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9"],
-                    {"default": "1:1", "tooltip": "Aspect ratio"},
+                    ["auto", "1:1", "3:2", "2:3", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9", "4:1", "1:4", "8:1", "1:8"],
+                    {"default": "auto", "tooltip": "Aspect ratio (Lite: auto + ultra-wide/tall)"},
                 ),
-                "resolution": (["1k", "2k", "4k"], {"default": "1k", "tooltip": "Resolution preset"}),
+                "resolution": (["1k"], {"default": "1k", "tooltip": "Resolution preset (Lite: 1k only)"}),
                 "output_format": (["default", "png", "jpeg"], {"default": "default", "tooltip": "Output format"}),
                 "enable_web_search": ("BOOLEAN", {"default": False, "tooltip": "Ground generation with web search"}),
                 "enable_image_search": ("BOOLEAN", {"default": False, "tooltip": "Ground generation with image search"}),
                 "enable_base64_output": ("BOOLEAN", {"default": False, "tooltip": "Return base64 instead of URL if supported"}),
+                "enable_sync_mode": ("BOOLEAN", {"default": False, "tooltip": "If true, server may try to return result synchronously"}),
+                "thinking_level": (
+                    ["default", "high", "minimal"],
+                    {"default": "default", "tooltip": "Reasoning effort for generation (Nano Banana 2)."},
+                ),
                 "poll_interval_sec": ("FLOAT", {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"}),
                 "timeout_sec": ("INT", {"default": 300, "min": 30, "max": 7200, "tooltip": "Timeout (seconds)"}),
             },
@@ -57,6 +62,8 @@ class AtlasNanoBanana2LiteReferenceToImage:
         enable_base64_output: bool = False,
         randomize_seed: bool = True,
         seed: int = 0,
+        enable_sync_mode: bool = False,
+        thinking_level: str = "default",
         poll_interval_sec: float = 2.0,
         timeout_sec: int = 300,
     ) -> Tuple[str, str]:
@@ -76,6 +83,8 @@ class AtlasNanoBanana2LiteReferenceToImage:
 
         payload: Dict[str, Any] = {
             "model": "google/nano-banana-2-lite/reference-to-image",
+            "enable_sync_mode": bool(enable_sync_mode),
+            "thinking_level": thinking_level,
             "prompt": prompt,
             "video_clips": [
                 {

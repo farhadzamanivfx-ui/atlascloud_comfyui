@@ -35,6 +35,15 @@ class AtlasNanoBanana2ReferenceToImage:
                 "enable_web_search": ("BOOLEAN", {"default": False, "tooltip": "Ground generation with web search"}),
                 "enable_image_search": ("BOOLEAN", {"default": False, "tooltip": "Ground generation with image search"}),
                 "enable_base64_output": ("BOOLEAN", {"default": False, "tooltip": "Return base64 instead of URL if supported"}),
+                "enable_sync_mode": ("BOOLEAN", {"default": False, "tooltip": "If true, server may try to return result synchronously"}),
+                "media_resolution": (
+                    ["default", "low", "medium", "high"],
+                    {"default": "default", "tooltip": "Processing resolution for input/reference media."},
+                ),
+                "thinking_level": (
+                    ["default", "high", "minimal"],
+                    {"default": "default", "tooltip": "Reasoning effort for generation (Nano Banana 2)."},
+                ),
                 "poll_interval_sec": ("FLOAT", {"default": 2.0, "min": 0.5, "max": 10.0, "tooltip": "Polling interval (seconds)"}),
                 "timeout_sec": ("INT", {"default": 300, "min": 30, "max": 7200, "tooltip": "Timeout (seconds)"}),
             },
@@ -57,6 +66,9 @@ class AtlasNanoBanana2ReferenceToImage:
         enable_base64_output: bool = False,
         randomize_seed: bool = True,
         seed: int = 0,
+        enable_sync_mode: bool = False,
+        media_resolution: str = "default",
+        thinking_level: str = "default",
         poll_interval_sec: float = 2.0,
         timeout_sec: int = 300,
     ) -> Tuple[str, str]:
@@ -76,6 +88,9 @@ class AtlasNanoBanana2ReferenceToImage:
 
         payload: Dict[str, Any] = {
             "model": "google/nano-banana-2/reference-to-image",
+            "enable_sync_mode": bool(enable_sync_mode),
+            "media_resolution": media_resolution,
+            "thinking_level": thinking_level,
             "prompt": prompt,
             "video_clips": [
                 {

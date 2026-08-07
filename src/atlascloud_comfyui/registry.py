@@ -393,9 +393,12 @@ from atlascloud_comfyui.nodes.utils.image_preview import AtlasImagePreviewURL
 from atlascloud_comfyui.nodes.utils.video_previewer import AtlasVideoPreviewer
 from atlascloud_comfyui.nodes.utils.image_to_base64 import AtlasImageToBase64
 from atlascloud_comfyui.nodes.utils.multi_image_to_base64 import AtlasMultiImageToBase64
+from atlascloud_comfyui.nodes.utils.multi_image_to_base64_30 import AtlasMultiImageToBase64_30
 from atlascloud_comfyui.nodes.utils.upload_videos_to_asset import AtlasUploadVideosToAsset
+from atlascloud_comfyui.nodes.utils.upload_videos_to_asset_10 import AtlasUploadVideosToAsset_10
 from atlascloud_comfyui.nodes.utils.upload_audio_to_asset import AtlasUploadAudioToAsset
 from atlascloud_comfyui.nodes.utils.upload_audios_to_asset import AtlasUploadAudiosToAsset
+from atlascloud_comfyui.nodes.utils.upload_audios_to_asset_10 import AtlasUploadAudiosToAsset_10
 from atlascloud_comfyui.nodes.utils.multi_image_to_seedance_assets import AtlasMultiImageToSeedanceAssets
 
 
@@ -516,9 +519,12 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Video Preview": AtlasVideoPreviewer,
     "AtlasCloud Image to Base64": AtlasImageToBase64,
     "AtlasCloud Multi Image to Base64": AtlasMultiImageToBase64,
+    "AtlasCloud Multi Image to Base64 (30)": AtlasMultiImageToBase64_30,
     "AtlasCloud Upload Videos to Asset": AtlasUploadVideosToAsset,
+    "AtlasCloud Upload Videos to Asset (10)": AtlasUploadVideosToAsset_10,
     "AtlasCloud Upload Audio to Asset": AtlasUploadAudioToAsset,
     "AtlasCloud Upload Audios to Asset": AtlasUploadAudiosToAsset,
+    "AtlasCloud Upload Audios to Asset (10)": AtlasUploadAudiosToAsset_10,
     "AtlasCloud Multi Image to Seedance Assets": AtlasMultiImageToSeedanceAssets,
     "AtlasCloud Kling V3.0 Pro Text-to-Video": AtlasKlingV30ProTextToVideo,
     "AtlasCloud Kling V3.0 Std Text-to-Video": AtlasKlingV30StdTextToVideo,
@@ -874,7 +880,10 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Video Preview": "AtlasCloud Video Preview",
     "AtlasCloud Image to Base64": "AtlasCloud Image to Base64",
     "AtlasCloud Multi Image to Base64": "AtlasCloud Multi Image to Base64",
+    "AtlasCloud Multi Image to Base64 (30)": "AtlasCloud Multi Image to Base64 (30)",
     "AtlasCloud Upload Videos to Asset": "AtlasCloud Upload Videos to Asset",
+    "AtlasCloud Upload Videos to Asset (10)": "AtlasCloud Upload Videos to Asset (10)",
+    "AtlasCloud Upload Audios to Asset (10)": "AtlasCloud Upload Audios to Asset (10)",
     "AtlasCloud Upload Audio to Asset": "AtlasCloud Upload Audio to Asset",
     "AtlasCloud Multi Image to Seedance Assets": "AtlasCloud Multi Image to Seedance Assets",
     "AtlasCloud Kling V3.0 Pro Text-to-Video": "AtlasCloud Kling V3.0 Pro Text-to-Video",

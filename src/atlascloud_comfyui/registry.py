@@ -295,6 +295,10 @@ from atlascloud_comfyui.nodes.deprecated.video.seedance_v1_lite_i2v_1080p import
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_t2v import AtlasSeedance20TextToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_i2v import AtlasSeedance20ImageToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_r2v import AtlasSeedance20ReferenceToVideo
+from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_r2v import AtlasSeedance25ReferenceToVideo
+from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_t2v import AtlasSeedance25TextToVideo
+from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_i2v import AtlasSeedance25ImageToVideo
+from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_r2v_multi import AtlasSeedance25ReferenceToVideoMulti
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_fast_t2v import AtlasSeedance20FastTextToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_fast_i2v import AtlasSeedance20FastImageToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_fast_r2v import AtlasSeedance20FastReferenceToVideo
@@ -450,6 +454,10 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Seedance 2.0 Text-to-Video": AtlasSeedance20TextToVideo,
     "AtlasCloud Seedance 2.0 Image-to-Video": AtlasSeedance20ImageToVideo,
     "AtlasCloud Seedance 2.0 Reference-to-Video": AtlasSeedance20ReferenceToVideo,
+    "AtlasCloud Seedance 2.5 Text-to-Video": AtlasSeedance25TextToVideo,
+    "AtlasCloud Seedance 2.5 Image-to-Video": AtlasSeedance25ImageToVideo,
+    "AtlasCloud Seedance 2.5 Reference-to-Video": AtlasSeedance25ReferenceToVideo,
+    "AtlasCloud Seedance 2.5 Reference-to-Video (Multi 30img/10vid)": AtlasSeedance25ReferenceToVideoMulti,
     "AtlasCloud Seedance 2.0 Fast Text-to-Video": AtlasSeedance20FastTextToVideo,
     "AtlasCloud Seedance 2.0 Fast Image-to-Video": AtlasSeedance20FastImageToVideo,
     "AtlasCloud Seedance 2.0 Fast Reference-to-Video": AtlasSeedance20FastReferenceToVideo,
@@ -803,6 +811,10 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Seedance 2.0 Text-to-Video": "AtlasCloud Seedance 2.0 Text-to-Video",
     "AtlasCloud Seedance 2.0 Image-to-Video": "AtlasCloud Seedance 2.0 Image-to-Video",
     "AtlasCloud Seedance 2.0 Reference-to-Video": "AtlasCloud Seedance 2.0 Reference-to-Video",
+    "AtlasCloud Seedance 2.5 Text-to-Video": "AtlasCloud Seedance 2.5 Text-to-Video",
+    "AtlasCloud Seedance 2.5 Image-to-Video": "AtlasCloud Seedance 2.5 Image-to-Video",
+    "AtlasCloud Seedance 2.5 Reference-to-Video": "AtlasCloud Seedance 2.5 Reference-to-Video",
+    "AtlasCloud Seedance 2.5 Reference-to-Video (Multi 30img/10vid)": "AtlasCloud Seedance 2.5 Reference-to-Video (Multi 30img/10vid)",
     "AtlasCloud Seedance 2.0 Fast Text-to-Video": "AtlasCloud Seedance 2.0 Fast Text-to-Video",
     "AtlasCloud Seedance 2.0 Fast Image-to-Video": "AtlasCloud Seedance 2.0 Fast Image-to-Video",
     "AtlasCloud Seedance 2.0 Fast Reference-to-Video": "AtlasCloud Seedance 2.0 Fast Reference-to-Video",

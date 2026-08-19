@@ -123,6 +123,8 @@ from atlascloud_comfyui.nodes.video.kling_v26_pro_avatar import AtlasKlingV26Pro
 from atlascloud_comfyui.nodes.video.kling_v26_std_avatar import AtlasKlingV26StdAvatar
 from atlascloud_comfyui.nodes.video.kling_v26_pro_motion_control import AtlasKlingV26ProMotionControl
 from atlascloud_comfyui.nodes.video.kling_v26_std_motion_control import AtlasKlingV26StdMotionControl
+from atlascloud_comfyui.nodes.video.kling_v30_pro_motion_control import AtlasKlingV30ProMotionControl
+from atlascloud_comfyui.nodes.video.kling_v30_std_motion_control import AtlasKlingV30StdMotionControl
 from atlascloud_comfyui.nodes.video.seedance_v15_pro_i2v import AtlasSeedanceV15ProImageToVideo
 from atlascloud_comfyui.nodes.video.seedance_v15_pro_i2v_spicy import AtlasSeedanceV15ProImageToVideoSpicy
 from atlascloud_comfyui.nodes.video.seedance_v15_pro_i2v_fast import AtlasSeedanceV15ProImageToVideoFast
@@ -443,6 +445,8 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Kling V2.6 Std Avatar": AtlasKlingV26StdAvatar,
     "AtlasCloud Kling V2.6 Pro Motion-Control": AtlasKlingV26ProMotionControl,
     "AtlasCloud Kling V2.6 Std Motion-Control": AtlasKlingV26StdMotionControl,
+    "AtlasCloud Kling V3.0 Pro Motion-Control": AtlasKlingV30ProMotionControl,
+    "AtlasCloud Kling V3.0 Std Motion-Control": AtlasKlingV30StdMotionControl,
     "AtlasCloud Kling V2.6 Pro Image-to-Video": AtlasKlingV26ProImageToVideo,
     "AtlasCloud Kling Video O1 Text-to-Video": AtlasKlingVideoO1TextToVideo,
     "AtlasCloud Kling Video O1 Image-to-Video": AtlasKlingVideoO1ImageToVideo,
@@ -804,6 +808,8 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Kling V2.6 Std Avatar": "AtlasCloud Kling V2.6 Std Avatar",
     "AtlasCloud Kling V2.6 Pro Motion-Control": "AtlasCloud Kling V2.6 Pro Motion-Control",
     "AtlasCloud Kling V2.6 Std Motion-Control": "AtlasCloud Kling V2.6 Std Motion-Control",
+    "AtlasCloud Kling V3.0 Pro Motion-Control": "AtlasCloud Kling V3.0 Pro Motion-Control",
+    "AtlasCloud Kling V3.0 Std Motion-Control": "AtlasCloud Kling V3.0 Std Motion-Control",
     "AtlasCloud Kling V2.6 Pro Image-to-Video": "AtlasCloud Kling V2.6 Pro Image-to-Video",
     "AtlasCloud Kling Video O1 Text-to-Video": "AtlasCloud Kling Video O1 Text-to-Video",
     "AtlasCloud Kling Video O1 Image-to-Video": "AtlasCloud Kling Video O1 Image-to-Video",

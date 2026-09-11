@@ -37,6 +37,15 @@ except Exception as e:
     NODE_DISPLAY_NAME_MAPPINGS = {}
 
 try:
+    # Turn the ATLAS_CLIENT nodes into async nodes so several generations can be
+    # in flight at once instead of running one-by-one. See parallel.py.
+    from atlascloud_comfyui.parallel import enable_parallel
+
+    enable_parallel(NODE_CLASS_MAPPINGS)
+except Exception as e:
+    print("[AtlasCloud] Failed to enable parallel execution:", repr(e))
+
+try:
     from atlascloud_comfyui.history.api import register_history_routes
 
     register_history_routes()

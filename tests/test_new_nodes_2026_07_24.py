@@ -10,10 +10,15 @@ def test_nano_banana2_lite_r2i_metadata():
         AtlasNanoBanana2LiteReferenceToImage,
     )
 
-    required = AtlasNanoBanana2LiteReferenceToImage.INPUT_TYPES()["required"]
+    spec = AtlasNanoBanana2LiteReferenceToImage.INPUT_TYPES()
+    required = spec["required"]
+    optional = spec["optional"]
     assert "atlas_client" in required
     assert "prompt" in required
-    assert "video_url" in required
+    # video_url is optional: images-only reference runs are allowed
+    assert "video_url" not in required
+    assert "video_url" in optional
+    assert "images" in optional
     assert AtlasNanoBanana2LiteReferenceToImage.RETURN_TYPES == ("STRING", "STRING")
     assert AtlasNanoBanana2LiteReferenceToImage.CATEGORY == "AtlasCloud/Image"
 

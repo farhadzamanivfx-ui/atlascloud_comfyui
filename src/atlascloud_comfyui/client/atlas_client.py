@@ -145,6 +145,62 @@ class AtlasClient:
             raise AtlasError(f"Unexpected uploadMedia response: {data}")
         return payload
 
+    def resolve_reference_images(self, refs):
+        """Return a reference-images list that is safe to inline in a generateVideo
+        payload. `asset://` refs and public http(s) URLs pass through unchanged; any
+        inline image (a `data:` URL or raw base64) is decoded and uploaded via
+        uploadMedia and replaced by its short download URL, so the JSON body stays
+        small and the request never trips the server's payload-size limit (HTTP 413).
+        """
+        import base64 as _base64
+
+        resolved = []
+        for raw in refs or []:
+            value = (raw or "").strip()
+            if not value:
+                continue
+            low = value.lower()
+            if low.startswith(("asset://", "http://", "https://")):
+                resolved.append(value)
+                continue
+
+            mime = "image/png"
+            b64 = value
+            if low.startswith("data:"):
+                header, _, b64 = value.partition(",")
+                meta = header[5:]
+                if meta:
+                    mime = meta.split(";", 1)[0] or mime
+            try:
+                content = _base64.b64decode(b64, validate=False)
+            except Exception as exc:
+                raise AtlasError(
+                    "reference image is not an asset:// ref, a public URL, or a valid "
+                    "base64/data-URL image: {}".format(exc)
+                )
+            if not content:
+                raise AtlasError("reference image decoded to empty bytes")
+
+            if content[:8] == b"\x89PNG\r\n\x1a\n":
+                mime, ext = "image/png", "png"
+            elif content[:3] == b"\xff\xd8\xff":
+                mime, ext = "image/jpeg", "jpg"
+            elif content[:4] == b"RIFF" and content[8:12] == b"WEBP":
+                mime, ext = "image/webp", "webp"
+            elif content[:6] in (b"GIF87a", b"GIF89a"):
+                mime, ext = "image/gif", "gif"
+            else:
+                ext = {"image/jpeg": "jpg", "image/webp": "webp", "image/gif": "gif"}.get(mime, "png")
+
+            uploaded = self.upload_media_bytes(
+                content, filename="seedance_ref.{}".format(ext), mime_type=mime
+            )
+            download_url = str(uploaded.get("download_url") or "").strip()
+            if not download_url:
+                raise AtlasError("uploadMedia returned no download_url: {}".format(uploaded))
+            resolved.append(download_url)
+        return resolved
+
     def register_seedance_asset(self, *, url: str, asset_type: str = "Image") -> Dict[str, Any]:
         import requests
 

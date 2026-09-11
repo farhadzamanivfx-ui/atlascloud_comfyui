@@ -17,15 +17,15 @@ class AtlasNanoBanana2ReferenceToImageDev:
             "required": {
                 "atlas_client": ("ATLAS_CLIENT",),
                 "prompt": ("STRING", {"multiline": True, "tooltip": "Text prompt for generation"}),
-                "video_url": ("STRING", {"default": "", "tooltip": "Source video clip URL (HTTP <=15MB or YouTube URL)"}),
             },
             "optional": {
+                "video_url": ("STRING", {"default": "", "tooltip": "Optional source video clip URL (HTTP <=15MB or YouTube). Leave empty to use image references only. At least one of video_url / images must be filled."}),
                 "randomize_seed": ("BOOLEAN", {"default": True, "tooltip": "开启后每次生成随机结果；关闭后使用下方固定 seed"}),
                 "seed": ("INT", {"default": 0, "min": 0, "max": 4294967295, "tooltip": "固定 seed（仅在随机开关关闭时生效）"}),
                 "video_start": ("FLOAT", {"default": 0.0, "min": 0.0, "max": 86400.0, "tooltip": "Trim start (seconds)"}),
                 "video_ends": ("FLOAT", {"default": 0.0, "min": 0.0, "max": 86400.0, "tooltip": "Trim end (seconds); 0 = whole video"}),
                 "video_fps": ("FLOAT", {"default": 1.0, "min": 0.0, "max": 24.0, "tooltip": "FPS of the video clip"}),
-                "images": ("STRING", {"multiline": True, "default": "", "tooltip": "Optional 0-10 reference image URLs/base64, one per line"}),
+                "images": ("STRING", {"multiline": True, "default": "", "tooltip": "Reference image URLs/base64, one per line (0-10). Can be used alone when video_url is empty."}),
                 "aspect_ratio": (
                     ["1:1", "3:2", "2:3", "3:4", "4:3", "4:5", "5:4", "9:16", "16:9", "21:9"],
                     {"default": "1:1", "tooltip": "Aspect ratio"},
@@ -47,7 +47,7 @@ class AtlasNanoBanana2ReferenceToImageDev:
         self,
         atlas_client: AtlasClientHandle,
         prompt: str,
-        video_url: str,
+        video_url: str = "",
         video_start: float = 0.0,
         video_ends: float = 0.0,
         video_fps: float = 1.0,
@@ -68,12 +68,25 @@ class AtlasNanoBanana2ReferenceToImageDev:
             raise RuntimeError("prompt is required")
 
         video_url = (video_url or "").strip()
-        if not video_url:
-            raise RuntimeError("video_url is required")
 
         image_list: List[str] = [v.strip() for v in (images or "").splitlines() if v.strip()]
         if len(image_list) > 10:
             raise RuntimeError("images maxItems is 10")
+
+        if not video_url and not image_list:
+            raise RuntimeError(
+                "No reference supplied. This endpoint is the VIDEO-reference variant: "
+                "fill 'video_url' with a video clip URL (HTTP <=15MB or YouTube). "
+                "For still-image references only, use the 'AtlasCloud Nano Banana 2 Edit' node instead."
+            )
+
+        if not video_url:
+            print(
+                "[AtlasCloud] WARNING: 'video_url' is empty. The Atlas API marks "
+                "'video_clips' as REQUIRED for reference-to-image, so this request "
+                "may be rejected server-side. For image-only references use the "
+                "'AtlasCloud Nano Banana 2 Edit' node."
+            )
 
         client = atlas_client.client
 
@@ -82,19 +95,21 @@ class AtlasNanoBanana2ReferenceToImageDev:
             "enable_sync_mode": bool(enable_sync_mode),
             "thinking_level": thinking_level,
             "prompt": prompt,
-            "video_clips": [
+            "aspect_ratio": aspect_ratio,
+            "resolution": resolution,
+            "enable_web_search": bool(enable_web_search),
+            "enable_base64_output": bool(enable_base64_output),
+        }
+
+        if video_url:
+            payload["video_clips"] = [
                 {
                     "url": video_url,
                     "start": float(video_start),
                     "ends": float(video_ends),
                     "fps": float(video_fps),
                 }
-            ],
-            "aspect_ratio": aspect_ratio,
-            "resolution": resolution,
-            "enable_web_search": bool(enable_web_search),
-            "enable_base64_output": bool(enable_base64_output),
-        }
+            ]
 
         if image_list:
             payload["images"] = image_list

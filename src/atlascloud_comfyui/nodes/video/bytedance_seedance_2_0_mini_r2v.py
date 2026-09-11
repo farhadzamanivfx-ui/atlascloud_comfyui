@@ -116,7 +116,7 @@ class AtlasSeedance20MiniReferenceToVideo:
             payload["reference_audios"] = ref_auds
 
         if ref_imgs:
-            payload["reference_images"] = ref_imgs
+            payload["reference_images"] = client.resolve_reference_images(ref_imgs)
         if ref_vids:
             payload["reference_videos"] = ref_vids
 

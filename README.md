@@ -1,12 +1,15 @@
-# atlascloud_comfyui
+# AtlasCloud ComfyUI — Community Edition
 
-> Use Atlas Cloud's 300+ AI models inside ComfyUI. Drop-in nodes for Sora 2, Veo 3.1, Kling 3, Seedance 2, Nano Banana Pro, GPT Image 2, Flux 2, and more.
+> Use Atlas Cloud's 300+ AI models inside ComfyUI — 440+ drop-in nodes for Seedance 2/2.5, Kling 3, Veo 3.1, Sora 2, MiniMax H3, Nano Banana, GPT Image 2/2.5, Flux 2/3, **3D generation**, and more.
+
+> [!NOTE]
+> **Unofficial community edition** of [AtlasCloudAI/atlascloud_comfyui](https://github.com/AtlasCloudAI/atlascloud_comfyui), maintained by [@farhadzamanivfx-ui](https://github.com/farhadzamanivfx-ui). It contains **every upstream node** (synced 2026-09-11) plus the extras listed in [What's different](#whats-different-in-this-edition). Not affiliated with or endorsed by Atlas Cloud.
 
 <p>
-  <a href="https://github.com/AtlasCloudAI/atlascloud_comfyui/blob/main/LICENSE"><img src="https://img.shields.io/github/license/AtlasCloudAI/atlascloud_comfyui?style=flat&colorA=18181B&colorB=28CF8D" alt="license" /></a>
-  <a href="https://github.com/AtlasCloudAI/atlascloud_comfyui/stargazers"><img src="https://img.shields.io/github/stars/AtlasCloudAI/atlascloud_comfyui?style=flat&colorA=18181B&colorB=28CF8D" alt="stars" /></a>
-  <a href="https://github.com/AtlasCloudAI/atlascloud_comfyui/pulls"><img src="https://img.shields.io/badge/PRs-welcome-28CF8D.svg?style=flat&colorA=18181B" alt="PRs welcome" /></a>
-  <img src="https://img.shields.io/badge/models-300%2B-28CF8D.svg?style=flat&colorA=18181B" alt="300+ models" />
+  <a href="https://github.com/farhadzamanivfx-ui/atlascloud_comfyui/blob/main/LICENSE"><img src="https://img.shields.io/github/license/farhadzamanivfx-ui/atlascloud_comfyui?style=flat&colorA=18181B&colorB=28CF8D" alt="license" /></a>
+  <a href="https://github.com/farhadzamanivfx-ui/atlascloud_comfyui/stargazers"><img src="https://img.shields.io/github/stars/farhadzamanivfx-ui/atlascloud_comfyui?style=flat&colorA=18181B&colorB=28CF8D" alt="stars" /></a>
+  <a href="https://github.com/farhadzamanivfx-ui/atlascloud_comfyui/pulls"><img src="https://img.shields.io/badge/PRs-welcome-28CF8D.svg?style=flat&colorA=18181B" alt="PRs welcome" /></a>
+  <img src="https://img.shields.io/badge/nodes-440%2B-28CF8D.svg?style=flat&colorA=18181B" alt="440+ nodes" />
 </p>
 
 > **[→ Get your free Atlas Cloud API key](https://www.atlascloud.ai/console/api-keys?utm_source=github&utm_campaign=atlascloud_comfyui)** — one key, 300+ models, no local GPU or model weights needed.
@@ -16,6 +19,25 @@
   <br />
   <sub><a href="examples/01-text-to-image.json"><code>examples/01-text-to-image.json</code></a> — paste your key into <b>AtlasCloud Client</b>, hit <b>Run</b>. Three nodes, no local GPU.</sub>
 </p>
+
+## What's different in this edition
+
+Everything in upstream, plus:
+
+| | Upstream | Community Edition |
+|---|:---:|:---:|
+| **3D generation** — Seed3D 2.0, Hunyuan3D Rapid/Pro, Tripo H3.1 (text- and image-to-3D) | – | ✅ |
+| **AtlasCloud Download 3D Model** — saves the mesh to `output/`, unzips, wires straight into Preview 3D / Load 3D | – | ✅ |
+| **Parallel execution** — independent Atlas nodes submit and poll at the same time instead of one by one (`ATLASCLOUD_MAX_PARALLEL`, default 4) | – | ✅ |
+| **Inline base64 references are uploaded first** — big multi-reference Seedance / Nano Banana / GPT Image requests no longer fail with HTTP 413 | – | ✅ |
+| **Seedance 2.5 on the current schema** — 4–30 s, every `-sr` / `-esr` tier up to `4k-esr`, mp4/mov, seed control | 480p/720p only | ✅ |
+| **Seedance 2.5 Reference-to-Video (Multi 30 img / 10 vid)** | – | ✅ |
+| **GPT Image 2.5** — `n` = 1–10 with an `image_urls` output for every result, up to 16 edit images | first image only | ✅ |
+| **Nano Banana 2 Reference-to-Image** works with images only (video optional) | video required | ✅ |
+| **Multi Image to Base64 (30)**, **Upload Videos/Audios to Asset (10)** utilities | – | ✅ |
+| **String dropdowns** for numeric options (duration, count, quality…) — this fork's original dropdown fix | int | ✅ |
+
+Kling V3.0 Motion Control is registered under both the upstream name (`Motion Control`) and this fork's earlier name (`Motion-Control`), so workflows saved with either version load.
 
 ## Supported Models
 
@@ -30,6 +52,7 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 
 ## Contents
 
+- [What's different in this edition](#whats-different-in-this-edition)
 - [Supported Models](#supported-models)
 - [Quickstart](#quickstart-5-minutes)
 - [Requirements](#requirements)
@@ -63,6 +86,12 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 
 ## Installation
 
+### Option 0 — ComfyUI Manager (Install via Git URL)
+
+In ComfyUI open **Manager → Install via Git URL**, paste `https://github.com/farhadzamanivfx-ui/atlascloud_comfyui` and restart ComfyUI.
+
+> Already have the official pack installed? Remove `custom_nodes/atlascloud_comfyui` first — both packs register the same node names.
+
 ### Option A — ComfyUI Desktop (Recommended)
 
 1. Quit ComfyUI Desktop completely.
@@ -74,7 +103,7 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 
 3. Clone the repo:
     ```
-    git clone https://github.com/AtlasCloudAI/atlascloud_comfyui.git
+    git clone https://github.com/farhadzamanivfx-ui/atlascloud_comfyui.git
     ```
 4. Install dependencies into ComfyUI Desktop venv:
 
@@ -92,7 +121,7 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
    `cd /path/to/ComfyUI/custom_nodes`
 
 2. Clone the repo:
-   `git clone https://github.com/AtlasCloudAI/atlascloud_comfyui.git`
+   `git clone https://github.com/farhadzamanivfx-ui/atlascloud_comfyui.git`
 3. Install dependencies using the same Python environment you use to run ComfyUI:
     ```
     cd atlascloud_comfyui

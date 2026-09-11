@@ -3,11 +3,12 @@ requires = ["setuptools>=70.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "atlascloud_comfyui"
-version = "0.0.1"
-description = "A collection of custom nodes for ComfyUI"
+name = "atlascloud-comfyui-community"
+version = "0.1.0"
+description = "Unofficial community edition of the Atlas Cloud ComfyUI nodes: 440+ cloud video, image, edit and 3D nodes, synced with upstream, plus parallel execution and 3D generation."
 authors = [
-  {name = "AtlasCloud", email = "irene.chen@atlascloud.ai"}
+  {name = "AtlasCloud", email = "irene.chen@atlascloud.ai"},
+  {name = "Farhad Zamani", email = "farhadzamani.vfx@gmail.com"},
 ]
 readme = "README.md"
 license = {text = "MIT license"}
@@ -32,17 +33,18 @@ dev = [
 ]
 
 [project.urls]
-Repository = "https://github.com/AtlascloudAI/atlascloud_comfyui"
-BugTracker = "https://github.com/AtlascloudAI/atlascloud_comfyui/issues"
-Documentation = "https://github.com/AtlascloudAI/atlascloud_comfyui/wiki"
+Repository = "https://github.com/farhadzamanivfx-ui/atlascloud_comfyui"
+BugTracker = "https://github.com/farhadzamanivfx-ui/atlascloud_comfyui/issues"
+Documentation = "https://github.com/farhadzamanivfx-ui/atlascloud_comfyui#readme"
+Upstream = "https://github.com/AtlasCloudAI/atlascloud_comfyui"
 
 
 [tool.comfy]
-PublisherId = "YC0101"
-DisplayName = "AtlasCloud_ComfyUI"
+PublisherId = ""  # TODO: create your publisher at https://registry.comfy.org and put its id here
+DisplayName = "AtlasCloud ComfyUI (Community Edition)"
 Icon = ""
-Tags = []
-Repository = "https://github.com/AtlascloudAI/atlascloud_comfyui"
+Tags = ["api", "cloud", "video", "image", "3d", "seedance", "kling", "veo", "nano-banana", "gpt-image"]
+Repository = "https://github.com/farhadzamanivfx-ui/atlascloud_comfyui"
 
 includes = ["src/atlascloud_comfyui"]
 

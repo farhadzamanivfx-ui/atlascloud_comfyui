@@ -212,6 +212,10 @@ from atlascloud_comfyui.nodes.image.openai_gpt_image_2_t2i import AtlasOpenAIGPT
 from atlascloud_comfyui.nodes.image.openai_gpt_image_2_edit import AtlasOpenAIGPTImage2Edit
 from atlascloud_comfyui.nodes.image.openai_gpt_image_2_dev_t2i import AtlasOpenAIGPTImage2DeveloperTextToImage
 from atlascloud_comfyui.nodes.image.openai_gpt_image_2_dev_edit import AtlasOpenAIGPTImage2DeveloperEdit
+from atlascloud_comfyui.nodes.image.openai_gpt_image_25_sunburst_t2i import AtlasOpenAIGPTImage25SunburstTextToImage
+from atlascloud_comfyui.nodes.image.openai_gpt_image_25_sunburst_edit import AtlasOpenAIGPTImage25SunburstEdit
+from atlascloud_comfyui.nodes.image.openai_gpt_image_25_flare_t2i import AtlasOpenAIGPTImage25FlareTextToImage
+from atlascloud_comfyui.nodes.image.openai_gpt_image_25_flare_edit import AtlasOpenAIGPTImage25FlareEdit
 from atlascloud_comfyui.nodes.image.qwen_image_20_t2i import AtlasQwenImage20TextToImage
 from atlascloud_comfyui.nodes.image.qwen_image_20_edit import AtlasQwenImage20Edit
 from atlascloud_comfyui.nodes.image.qwen_image_20_pro_t2i import AtlasQwenImage20ProTextToImage
@@ -402,6 +406,16 @@ from atlascloud_comfyui.nodes.utils.upload_audio_to_asset import AtlasUploadAudi
 from atlascloud_comfyui.nodes.utils.upload_audios_to_asset import AtlasUploadAudiosToAsset
 from atlascloud_comfyui.nodes.utils.upload_audios_to_asset_10 import AtlasUploadAudiosToAsset_10
 from atlascloud_comfyui.nodes.utils.multi_image_to_seedance_assets import AtlasMultiImageToSeedanceAssets
+
+from atlascloud_comfyui.nodes.three_d.bytedance_seed3d_v20_image_to_3d import AtlasSeed3DV20ImageTo3D
+from atlascloud_comfyui.nodes.three_d.tencent_hunyuan3d_rapid_image_to_3d import AtlasHunyuan3DRapidImageTo3D
+from atlascloud_comfyui.nodes.three_d.tencent_hunyuan3d_rapid_text_to_3d import AtlasHunyuan3DRapidTextTo3D
+from atlascloud_comfyui.nodes.three_d.tencent_hunyuan3d_pro_image_to_3d import AtlasHunyuan3DProImageTo3D
+from atlascloud_comfyui.nodes.three_d.tencent_hunyuan3d_pro_text_to_3d import AtlasHunyuan3DProTextTo3D
+from atlascloud_comfyui.nodes.three_d.tripo_h31_text_to_3d import AtlasTripoH31TextTo3D
+from atlascloud_comfyui.nodes.three_d.tripo_h31_image_to_3d import AtlasTripoH31ImageTo3D
+
+from atlascloud_comfyui.nodes.utils.download_model_3d import AtlasDownloadModel3D
 
 
 NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
@@ -679,6 +693,10 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud GPT Image-2 Edit": AtlasOpenAIGPTImage2Edit,
     "AtlasCloud GPT Image-2 Developer Text-to-Image": AtlasOpenAIGPTImage2DeveloperTextToImage,
     "AtlasCloud GPT Image-2 Developer Edit": AtlasOpenAIGPTImage2DeveloperEdit,
+    "AtlasCloud GPT Image-2.5 Sunburst Text-to-Image": AtlasOpenAIGPTImage25SunburstTextToImage,
+    "AtlasCloud GPT Image-2.5 Sunburst Edit": AtlasOpenAIGPTImage25SunburstEdit,
+    "AtlasCloud GPT Image-2.5 Flare Text-to-Image": AtlasOpenAIGPTImage25FlareTextToImage,
+    "AtlasCloud GPT Image-2.5 Flare Edit": AtlasOpenAIGPTImage25FlareEdit,
     "AtlasCloud Qwen Image 2.0 Text-to-Image": AtlasQwenImage20TextToImage,
     "AtlasCloud Qwen Image 2.0 Edit": AtlasQwenImage20Edit,
     "AtlasCloud Qwen Image 2.0 Pro Text-to-Image": AtlasQwenImage20ProTextToImage,
@@ -764,6 +782,14 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud LTX 2.3 Quality Text-to-Video": AtlasLtx23QualityTextToVideo,
     "AtlasCloud LTX 2.3 Quality Image-to-Video": AtlasLtx23QualityImageToVideo,
     "AtlasCloud LTX 2.3 Quality Extend Video": AtlasLtx23QualityExtendVideo,
+    "AtlasCloud Seed3D 2.0 Image-to-3D": AtlasSeed3DV20ImageTo3D,
+    "AtlasCloud Hunyuan3D Rapid Image-to-3D": AtlasHunyuan3DRapidImageTo3D,
+    "AtlasCloud Hunyuan3D Rapid Text-to-3D": AtlasHunyuan3DRapidTextTo3D,
+    "AtlasCloud Hunyuan3D Pro Image-to-3D": AtlasHunyuan3DProImageTo3D,
+    "AtlasCloud Hunyuan3D Pro Text-to-3D": AtlasHunyuan3DProTextTo3D,
+    "AtlasCloud Tripo H3.1 Text-to-3D": AtlasTripoH31TextTo3D,
+    "AtlasCloud Tripo H3.1 Image-to-3D": AtlasTripoH31ImageTo3D,
+    "AtlasCloud Download 3D Model": AtlasDownloadModel3D,
 }
 
 
@@ -1032,6 +1058,10 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud GPT Image-1.5 Edit": "AtlasCloud GPT Image-1.5 Edit",
     "AtlasCloud GPT Image-2 Developer Text-to-Image": "AtlasCloud GPT Image-2 Developer Text-to-Image",
     "AtlasCloud GPT Image-2 Developer Edit": "AtlasCloud GPT Image-2 Developer Edit",
+    "AtlasCloud GPT Image-2.5 Sunburst Text-to-Image": "AtlasCloud GPT Image-2.5 Sunburst Text-to-Image",
+    "AtlasCloud GPT Image-2.5 Sunburst Edit": "AtlasCloud GPT Image-2.5 Sunburst Edit",
+    "AtlasCloud GPT Image-2.5 Flare Text-to-Image": "AtlasCloud GPT Image-2.5 Flare Text-to-Image",
+    "AtlasCloud GPT Image-2.5 Flare Edit": "AtlasCloud GPT Image-2.5 Flare Edit",
     "AtlasCloud Qwen Image 2.0 Text-to-Image": "AtlasCloud Qwen Image 2.0 Text-to-Image",
     "AtlasCloud Qwen Image 2.0 Edit": "AtlasCloud Qwen Image 2.0 Edit",
     "AtlasCloud Qwen Image 2.0 Pro Text-to-Image": "AtlasCloud Qwen Image 2.0 Pro Text-to-Image",
@@ -1124,6 +1154,14 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud LTX 2.3 Quality Text-to-Video": "AtlasCloud LTX 2.3 Quality Text-to-Video",
     "AtlasCloud LTX 2.3 Quality Image-to-Video": "AtlasCloud LTX 2.3 Quality Image-to-Video",
     "AtlasCloud LTX 2.3 Quality Extend Video": "AtlasCloud LTX 2.3 Quality Extend Video",
+    "AtlasCloud Seed3D 2.0 Image-to-3D": "AtlasCloud Seed3D 2.0 Image-to-3D",
+    "AtlasCloud Hunyuan3D Rapid Image-to-3D": "AtlasCloud Hunyuan3D Rapid Image-to-3D",
+    "AtlasCloud Hunyuan3D Rapid Text-to-3D": "AtlasCloud Hunyuan3D Rapid Text-to-3D",
+    "AtlasCloud Hunyuan3D Pro Image-to-3D": "AtlasCloud Hunyuan3D Pro Image-to-3D",
+    "AtlasCloud Hunyuan3D Pro Text-to-3D": "AtlasCloud Hunyuan3D Pro Text-to-3D",
+    "AtlasCloud Tripo H3.1 Text-to-3D": "AtlasCloud Tripo H3.1 Text-to-3D",
+    "AtlasCloud Tripo H3.1 Image-to-3D": "AtlasCloud Tripo H3.1 Image-to-3D",
+    "AtlasCloud Download 3D Model": "AtlasCloud Download 3D Model (to output/)",
 }
 
 

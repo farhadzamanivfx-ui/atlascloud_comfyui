@@ -14,8 +14,9 @@
 ## Supported Models
 
 - 🎬 **Video** — Seedance 2.0 · Kling 3 · Sora 2 · Veo 3.1 · HappyHorse 1 · Grok Imagine 1.5 · Wan 2.7
-- 🎨 **Image** — Nano Banana 2/Pro · GPT Image 2 · Flux 2 · Seedream 5
+- 🎨 **Image** — Nano Banana 2/Pro · GPT Image 2/2.5 · Flux 2 · Seedream 5
 - 💬 **LLM** — Claude · GPT · DeepSeek · MiniMax · Kimi · GLM · Qwen
+- 🧊 **3D** — Seed3D 2.0 · Hunyuan3D Rapid/Pro · Tripo H3.1
 - 🔊 **Audio** — Grok TTS
 - 📚 **Explore more** — [300+ models »](https://www.atlascloud.ai/models?utm_source=github&utm_campaign=atlascloud_comfyui)
 
@@ -104,6 +105,7 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 -   **AtlasCloud Client** — Stores your API key and base URL for all Atlas Cloud nodes.
 -   **Image Previewer** — Preview generated images in ComfyUI.
 -   **Video Previewer** — Preview generated videos in ComfyUI.
+-   **AtlasCloud Download 3D Model** — Download a generated mesh into `output/` for **Preview 3D** / **Load 3D**.
 
 ### Text-to-Video (T2V)
 
@@ -404,6 +406,8 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud MAI-Image-2.5-Flash Text-to-Image | microsoft/mai-image-2.5-flash/text-to-image |
 | AtlasCloud GPT Image-2 Text-to-Image | openai/gpt-image-2/text-to-image |
 | AtlasCloud GPT Image-2 Developer Text-to-Image | openai/gpt-image-2-developer/text-to-image |
+| AtlasCloud GPT Image-2.5 Sunburst Text-to-Image | openai/gpt-image-2.5-sunburst/text-to-image |
+| AtlasCloud GPT Image-2.5 Flare Text-to-Image | openai/gpt-image-2.5-flare/text-to-image |
 
 ### Video Extend
 
@@ -465,9 +469,25 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud Grok Imagine Edit | xai/grok-imagine-image/edit |
 | AtlasCloud GPT Image-2 Edit | openai/gpt-image-2/edit |
 | AtlasCloud GPT Image-2 Developer Edit | openai/gpt-image-2-developer/edit |
+| AtlasCloud GPT Image-2.5 Sunburst Edit | openai/gpt-image-2.5-sunburst/edit |
+| AtlasCloud GPT Image-2.5 Flare Edit | openai/gpt-image-2.5-flare/edit |
 | AtlasCloud LTX 2.3 Quality Text-to-Video | ltx-2.3-quality/text-to-video |
 | AtlasCloud LTX 2.3 Quality Image-to-Video | ltx-2.3-quality/image-to-video |
 | AtlasCloud LTX 2.3 Quality Extend Video | ltx-2.3-quality/extend-video |
+
+### Text-to-3D / Image-to-3D
+
+These nodes live under the **AtlasCloud/3D** category and return a `model_url` pointing at the generated mesh. Feed that into **AtlasCloud Download 3D Model**, which saves the file under `output/atlascloud3d/` (unpacking the `.zip` that some formats are delivered in) and hands back a path you can wire straight into ComfyUI's **Preview 3D** or **Load 3D**.
+
+| Node | Model |
+|------|-------|
+| AtlasCloud Seed3D 2.0 Image-to-3D | bytedance/seed3d-v2.0/image-to-3d |
+| AtlasCloud Hunyuan3D Rapid Image-to-3D | tencent/hunyuan3d-rapid/image-to-3d |
+| AtlasCloud Hunyuan3D Rapid Text-to-3D | tencent/hunyuan3d-rapid/text-to-3d |
+| AtlasCloud Hunyuan3D Pro Image-to-3D | tencent/hunyuan3d-pro/image-to-3d |
+| AtlasCloud Hunyuan3D Pro Text-to-3D | tencent/hunyuan3d-pro/text-to-3d |
+| AtlasCloud Tripo H3.1 Text-to-3D | tripo-h3.1/text-to-3d |
+| AtlasCloud Tripo H3.1 Image-to-3D | tripo-h3.1/image-to-3d |
 
 > Nodes are continuously expanded as new models are added to AtlasCloud.
 

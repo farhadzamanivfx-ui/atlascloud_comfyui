@@ -62,8 +62,6 @@ class AtlasOpenAIGPTImage25SunburstEdit:
         poll_interval_sec: float = 2.0,
         timeout_sec: int = 600,
     ) -> Tuple[str, str, str]:
-        client = atlas_client.client
-
         p = (prompt or "").strip()
         if not p:
             raise RuntimeError("prompt is required")
@@ -75,6 +73,8 @@ class AtlasOpenAIGPTImage25SunburstEdit:
             raise RuntimeError("images maxItems is 16")
 
         # Inline base64 is uploaded first so up to 16 images don't blow the request size (HTTP 413).
+        client = atlas_client.client
+
         payload: Dict[str, Any] = {
             "model": "openai/gpt-image-2.5-sunburst/edit",
             "prompt": p,

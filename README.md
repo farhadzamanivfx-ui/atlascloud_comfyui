@@ -11,6 +11,12 @@
 
 > **[→ Get your free Atlas Cloud API key](https://www.atlascloud.ai/console/api-keys?utm_source=github&utm_campaign=atlascloud_comfyui)** — one key, 300+ models, no local GPU or model weights needed.
 
+<p align="center">
+  <img src="docs/images/text-to-image-workflow.png" alt="AtlasCloud nodes in ComfyUI — Client feeds an API key into a Nano Banana Pro Text-to-Image node, whose output lands in an Image Preview node showing the rendered image" width="900" />
+  <br />
+  <sub><a href="examples/01-text-to-image.json"><code>examples/01-text-to-image.json</code></a> — paste your key into <b>AtlasCloud Client</b>, hit <b>Run</b>. Three nodes, no local GPU.</sub>
+</p>
+
 ## Supported Models
 
 - 🎬 **Video** — Seedance 2.0 · Kling 3 · Sora 2 · Veo 3.1 · HappyHorse 1 · Grok Imagine 1.5 · Wan 2.7
@@ -122,6 +128,11 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud Cosmos 3 Super Image-to-Video | nvidia/cosmos-3-super/image-to-video |
 | AtlasCloud Gemini Omni Flash Reference-to-Video | google/gemini-omni-flash/reference-to-video |
 | AtlasCloud Gemini Omni Flash Video Edit | google/gemini-omni-flash/video-edit |
+| AtlasCloud Gemini Omni 1.1 Flash Text-to-Video | google/gemini-omni-1.1-flash/text-to-video |
+| AtlasCloud Gemini Omni 1.1 Flash Image-to-Video | google/gemini-omni-1.1-flash/image-to-video |
+| AtlasCloud Gemini Omni 1.1 Flash Reference-to-Video | google/gemini-omni-1.1-flash/reference-to-video |
+| AtlasCloud Gemini Omni 1.1 Flash Video Edit | google/gemini-omni-1.1-flash/video-edit |
+| AtlasCloud Gemini Omni 1.1 Flash Video Extend | google/gemini-omni-1.1-flash/video-extend |
 | AtlasCloud Grok Imagine Video Text-to-Video | xai/grok-imagine-video/text-to-video |
 | AtlasCloud VEO2 Text-to-Video | google/veo2 |
 | AtlasCloud WAN2.6 Text-to-Video | alibaba/wan-2.6/text-to-video |
@@ -200,12 +211,18 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud VEO3 Fast Image-to-Video | google/veo3-fast/image-to-video |
 | AtlasCloud Midjourney V8.1 Image-to-Video | midjourney/v8.1/image-to-video |
 | AtlasCloud Youchuan V8.1 Image-to-Video | youchuan/v8.1/image-to-video |
+| AtlasCloud Youchuan V8.2 Image-to-Video | youchuan/v8.2/image-to-video |
 | AtlasCloud VEO3.1 Fast Image-to-Video | google/veo3.1-fast/image-to-video |
 | AtlasCloud Gemini Omni Flash Image-to-Video Developer | google/gemini-omni-flash/image-to-video-developer |
 | AtlasCloud Gemini Omni Flash Reference-to-Video Developer | google/gemini-omni-flash/reference-to-video-developer |
 | AtlasCloud Grok Imagine Video Image-to-Video | xai/grok-imagine-video/image-to-video |
 | AtlasCloud Grok Imagine Video v1.5 Image-to-Video | xai/grok-imagine-video-v1.5/image-to-video |
 | AtlasCloud Grok Imagine Video Reference-to-Video | xai/grok-imagine-video/reference-to-video |
+| AtlasCloud Grok Imagine Video v1.5 Text-to-Video | xai/grok-imagine-video-v1.5/text-to-video |
+| AtlasCloud Grok Imagine Video v1.5 Reference-to-Video | xai/grok-imagine-video-v1.5/reference-to-video |
+| AtlasCloud Grok Imagine Video v1.5 Developer Text-to-Video | xai/grok-imagine-video-v1.5-developer/text-to-video |
+| AtlasCloud Grok Imagine Video v1.5 Developer Image-to-Video | xai/grok-imagine-video-v1.5-developer/image-to-video |
+| AtlasCloud Grok Imagine Video v1.5 Developer Reference-to-Video | xai/grok-imagine-video-v1.5-developer/reference-to-video |
 | AtlasCloud Grok Imagine Video Edit | xai/grok-imagine-video/edit-video |
 | AtlasCloud Grok Imagine Video Extend | xai/grok-imagine-video/extend-video |
 | AtlasCloud VEO3.1 Reference-to-Video | google/veo3.1/reference-to-video |
@@ -214,6 +231,9 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud Seedance 2.0 Mini Text-to-Video | bytedance/seedance-2.0-mini/text-to-video |
 | AtlasCloud Seedance 2.0 Mini Image-to-Video | bytedance/seedance-2.0-mini/image-to-video |
 | AtlasCloud Seedance 2.0 Mini Reference-to-Video | bytedance/seedance-2.0-mini/reference-to-video |
+| AtlasCloud Seedance 2.5 Text-to-Video | bytedance/seedance-2.5/text-to-video |
+| AtlasCloud Seedance 2.5 Image-to-Video | bytedance/seedance-2.5/image-to-video |
+| AtlasCloud Seedance 2.5 Reference-to-Video | bytedance/seedance-2.5/reference-to-video |
 | AtlasCloud Avatar Omni Human 1.5 | bytedance/avatar-omni-human-v1.5 |
 | AtlasCloud Image Upscaler | atlascloud/image-upscaler |
 | AtlasCloud Face Swap (Image) | atlascloud/face-swap-image |
@@ -276,12 +296,40 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud WAN2.6 Image-to-Video | alibaba/wan-2.6/image-to-video |
 | AtlasCloud WAN2.6 Spicy Image-to-Video | atlascloud/wan-2.6-spicy/image-to-video |
 | AtlasCloud WAN2.7 Spicy Image-to-Video | atlascloud/wan-2.7-spicy/image-to-video |
+| AtlasCloud WAN2.7 Spicy Reference-to-Video | atlascloud/wan-2.7-spicy/reference-to-video |
+| AtlasCloud MiniMax H3 Text-to-Video | minimax/h3/text-to-video |
+| AtlasCloud MiniMax H3 Image-to-Video | minimax/h3/image-to-video |
+| AtlasCloud MiniMax H3 Reference-to-Video | minimax/h3/reference-to-video |
+| AtlasCloud MiniMax H3-Developer Text-to-Video | minimax/h3-developer/text-to-video |
+| AtlasCloud MiniMax H3-Developer Image-to-Video | minimax/h3-developer/image-to-video |
+| AtlasCloud MiniMax H3-Developer Reference-to-Video | minimax/h3-developer/reference-to-video |
+| AtlasCloud MiniMax H3 Max Text-to-Video | minimax/h3-max/text-to-video |
+| AtlasCloud MiniMax H3 Max Image-to-Video | minimax/h3-max/image-to-video |
+| AtlasCloud MiniMax H3 Max Turbo Text-to-Video | minimax/h3-max-turbo/text-to-video |
+| AtlasCloud MiniMax H3 Max Turbo Image-to-Video | minimax/h3-max-turbo/image-to-video |
+| AtlasCloud MiniMax H3 Fast Text-to-Video | minimax/h3-fast/text-to-video |
+| AtlasCloud MiniMax H3 Fast Image-to-Video | minimax/h3-fast/image-to-video |
+| AtlasCloud MiniMax H3 Fast Reference-to-Video | minimax/h3-fast/reference-to-video |
+| AtlasCloud Tencent Image Upscaler | tencent/image/upscaler |
+| AtlasCloud Tencent Video Upscaler | tencent/video/upscaler |
+| AtlasCloud BytePlus Video Upscaler | byteplus/video/upscaler |
 | AtlasCloud WAN2.7 Image-to-Video | alibaba/wan-2.7/image-to-video |
 | AtlasCloud HappyHorse 1.0 Image-to-Video | alibaba/happyhorse-1.0/image-to-video |
 | AtlasCloud HappyHorse 1.1 Image-to-Video | alibaba/happyhorse-1.1/image-to-video |
 | AtlasCloud HappyHorse 1.0 Reference-to-Video | alibaba/happyhorse-1.0/reference-to-video |
 | AtlasCloud HappyHorse 1.1 Reference-to-Video | alibaba/happyhorse-1.1/reference-to-video |
 | AtlasCloud WAN2.7 Reference-to-Video | alibaba/wan-2.7/reference-to-video |
+| AtlasCloud WAN3.0 Text-to-Video | alibaba/wan-3.0/text-to-video |
+| AtlasCloud WAN3.0 Image-to-Video | alibaba/wan-3.0/image-to-video |
+| AtlasCloud WAN3.0 Reference-to-Video | alibaba/wan-3.0/reference-to-video |
+| AtlasCloud WAN3.0-Prime Text-to-Video | alibaba/wan-3.0-prime/text-to-video |
+| AtlasCloud WAN3.0-Prime Image-to-Video | alibaba/wan-3.0-prime/image-to-video |
+| AtlasCloud WAN3.0-Prime Reference-to-Video | alibaba/wan-3.0-prime/reference-to-video |
+| AtlasCloud Studio Food Motion | atlascloud/studio/food-motion |
+| AtlasCloud Studio Virtual Try-On | atlascloud/studio/virtual-try-on |
+| AtlasCloud Studio UGC Ad | atlascloud/studio/ugc-ad |
+| AtlasCloud Studio Trend Remix | atlascloud/studio/trend-remix |
+| AtlasCloud Studio TVC Maker | atlascloud/studio/tvc-maker |
 | AtlasCloud WAN2.6 Image-to-Video Flash | alibaba/wan-2.6/image-to-video-flash |
 | AtlasCloud Kling Video O3 Pro Image-to-Video | kwaivgi/kling-video-o3-pro/image-to-video |
 | AtlasCloud Kling Video O3 Std Image-to-Video | kwaivgi/kling-video-o3-std/image-to-video |
@@ -353,6 +401,11 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud Youchuan V8.1 Blend | youchuan/v8.1/blend |
 | AtlasCloud Youchuan V8.1 Remove Background | youchuan/v8.1/remove-background |
 | AtlasCloud Youchuan V8.1 Style Transfer | youchuan/v8.1/style-transfer |
+| AtlasCloud Youchuan V8.2 Text-to-Image | youchuan/v8.2/text-to-image |
+| AtlasCloud Youchuan V8.2 Image-to-Image | youchuan/v8.2/image-to-image |
+| AtlasCloud Youchuan V8.2 Blend | youchuan/v8.2/blend |
+| AtlasCloud Youchuan V8.2 Remove Background | youchuan/v8.2/remove-background |
+| AtlasCloud Youchuan V8.2 Style Transfer | youchuan/v8.2/style-transfer |
 | AtlasCloud WAN2.6 Text-to-Image | alibaba/wan-2.6/text-to-image |
 | AtlasCloud WAN2.7 Text-to-Image | alibaba/wan-2.7/text-to-image |
 | AtlasCloud WAN2.7 Pro Text-to-Image | alibaba/wan-2.7-pro/text-to-image |
@@ -380,6 +433,8 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud Seedream V4 Sequential Text-to-Image | bytedance/seedream-v4/sequential |
 | AtlasCloud Seedream V4.5 Text-to-Image | bytedance/seedream-v4.5 |
 | AtlasCloud Seedream V4.5 Sequential Text-to-Image | bytedance/seedream-v4.5/sequential |
+| AtlasCloud Seedream V4.7 Text-to-Image | bytedance/seedream-v4.7/text-to-image |
+| AtlasCloud Seedream V4.7 Sequential Text-to-Image | bytedance/seedream-v4.7/sequential |
 | AtlasCloud ZImage Turbo Text-to-Image | z-image/turbo |
 | AtlasCloud Ideogram V3 Quality Text-to-Image | ideogram-ai/ideogram-v3-quality |
 | AtlasCloud Ideogram V3 Turbo Text-to-Image | ideogram-ai/ideogram-v3-turbo |
@@ -399,11 +454,18 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud ZImage Turbo Lora Text-to-Image | z-image/turbo-lora |
 | AtlasCloud Qwen Image Text-to-Image Plus | alibaba/qwen-image/text-to-image-plus |
 | AtlasCloud Qwen Image Text-to-Image Max | alibaba/qwen-image/text-to-image-max |
+| AtlasCloud Qwen Image 3.0 Text-to-Image | qwen-image-3.0/text-to-image |
+| AtlasCloud Qwen Image 3.0 Pro Text-to-Image | qwen-image-3.0-pro/text-to-image |
 | AtlasCloud Grok Imagine IQ Text-to-Image | xai/grok-imagine-image-quality/text-to-image |
 | AtlasCloud Grok Imagine Text-to-Image | xai/grok-imagine-image/text-to-image |
+| AtlasCloud Grok Imagine Image 2.0 Text-to-Image | xai/grok-imagine-image-2.0/text-to-image |
+| AtlasCloud Grok Imagine Image 2.0 Developer Text-to-Image | xai/grok-imagine-image-2.0-developer/text-to-image |
 | AtlasCloud Baidu ERNIE-Image-Turbo Text-to-Image | baidu/ERNIE-Image-Turbo/text-to-image |
 | AtlasCloud MAI-Image-2.5 Text-to-Image | microsoft/mai-image-2.5/text-to-image |
 | AtlasCloud MAI-Image-2.5-Flash Text-to-Image | microsoft/mai-image-2.5-flash/text-to-image |
+| AtlasCloud MAI-Image-2.5-Pro Text-to-Image | microsoft/mai-image-2.5-pro/text-to-image |
+| AtlasCloud MAI-Image-2.6 Text-to-Image | microsoft/mai-image-2.6/text-to-image |
+| AtlasCloud MAI-Image-2.6-Flash Text-to-Image | microsoft/mai-image-2.6-flash/text-to-image |
 | AtlasCloud GPT Image-2 Text-to-Image | openai/gpt-image-2/text-to-image |
 | AtlasCloud GPT Image-2 Developer Text-to-Image | openai/gpt-image-2-developer/text-to-image |
 | AtlasCloud GPT Image-2.5 Sunburst Text-to-Image | openai/gpt-image-2.5-sunburst/text-to-image |
@@ -444,16 +506,22 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud Seedream V5.0 Lite Edit | bytedance/seedream-v5.0-lite/edit |
 | AtlasCloud Seedream V5.0 Lite Edit Sequential | bytedance/seedream-v5.0-lite/edit-sequential |
 | AtlasCloud Seedream V5.0 Pro Edit | bytedance/seedream-v5.0-pro/edit |
+| AtlasCloud Seedream V5.0 Pro Layer Decomposition | bytedance/seedream-v5.0-pro/layer-decomposition |
 | AtlasCloud WAN2.6 Image-Edit | alibaba/wan-2.6/image-edit |
 | AtlasCloud WAN2.7 Image-Edit | alibaba/wan-2.7/image-edit |
 | AtlasCloud WAN2.7 Pro Image-Edit | alibaba/wan-2.7-pro/image-edit |
 | AtlasCloud WAN2.5 Image-Edit | alibaba/wan-2.5/image-edit |
 | AtlasCloud MAI-Image-2.5 Edit | microsoft/mai-image-2.5/edit |
 | AtlasCloud MAI-Image-2.5-Flash Edit | microsoft/mai-image-2.5-flash/edit |
+| AtlasCloud MAI-Image-2.5-Pro Edit | microsoft/mai-image-2.5-pro/edit |
+| AtlasCloud MAI-Image-2.6 Edit | microsoft/mai-image-2.6/edit |
+| AtlasCloud MAI-Image-2.6-Flash Edit | microsoft/mai-image-2.6-flash/edit |
 | AtlasCloud Seedream V4 Edit | bytedance/seedream-v4/edit |
 | AtlasCloud Seedream V4 Edit Sequential | bytedance/seedream-v4/edit-sequential |
 | AtlasCloud Seedream V4.5 Edit | bytedance/seedream-v4.5/edit |
 | AtlasCloud Seedream V4.5 Edit Sequential | bytedance/seedream-v4.5/edit-sequential |
+| AtlasCloud Seedream V4.7 Edit | bytedance/seedream-v4.7/edit |
+| AtlasCloud Seedream V4.7 Edit Sequential | bytedance/seedream-v4.7/edit-sequential |
 | AtlasCloud Qwen Image Edit | atlascloud/qwen-image/edit |
 | AtlasCloud Qwen Image Edit (Alibaba) | alibaba/qwen-image/edit |
 | AtlasCloud Qwen Image Edit Plus (Alibaba) | alibaba/qwen-image/edit-plus |
@@ -465,8 +533,13 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud Flux Kontext Dev Edit | black-forest-labs/flux-kontext-dev |
 | AtlasCloud Flux Kontext Dev LoRA Edit | black-forest-labs/flux-kontext-dev-lora |
 | AtlasCloud Qwen Image Edit Plus 20251215 | alibaba/qwen-image/edit-plus-20251215 |
+| AtlasCloud Qwen Image 3.0 Edit | qwen-image-3.0/edit |
+| AtlasCloud Qwen Image 3.0 Pro Edit | qwen-image-3.0-pro/edit |
+| AtlasCloud Studio Product Visuals | atlascloud/studio/product-visuals |
 | AtlasCloud Grok Imagine IQ Edit | xai/grok-imagine-image-quality/edit |
 | AtlasCloud Grok Imagine Edit | xai/grok-imagine-image/edit |
+| AtlasCloud Grok Imagine Image 2.0 Edit | xai/grok-imagine-image-2.0/edit |
+| AtlasCloud Grok Imagine Image 2.0 Developer Edit | xai/grok-imagine-image-2.0-developer/edit |
 | AtlasCloud GPT Image-2 Edit | openai/gpt-image-2/edit |
 | AtlasCloud GPT Image-2 Developer Edit | openai/gpt-image-2-developer/edit |
 | AtlasCloud GPT Image-2.5 Sunburst Edit | openai/gpt-image-2.5-sunburst/edit |
@@ -474,6 +547,13 @@ This node pack focuses on **image / video / edit** — see the full **[node cata
 | AtlasCloud LTX 2.3 Quality Text-to-Video | ltx-2.3-quality/text-to-video |
 | AtlasCloud LTX 2.3 Quality Image-to-Video | ltx-2.3-quality/image-to-video |
 | AtlasCloud LTX 2.3 Quality Extend Video | ltx-2.3-quality/extend-video |
+| AtlasCloud FLUX 3 Text-to-Video | black-forest-labs/flux-3/text-to-video |
+| AtlasCloud FLUX 3 Image-to-Video | black-forest-labs/flux-3/image-to-video |
+| AtlasCloud FLUX 3 First & Last Frame to Video | black-forest-labs/flux-3/first-last-frame-to-video |
+| AtlasCloud FLUX 3 Keyframes to Video | black-forest-labs/flux-3/keyframes-to-video |
+| AtlasCloud FLUX 3 Extend Video | black-forest-labs/flux-3/extend-video |
+| AtlasCloud Kling V3.0 Pro Motion Control | kwaivgi/kling-v3.0-pro/motion-control |
+| AtlasCloud Kling V3.0 Std Motion Control | kwaivgi/kling-v3.0-std/motion-control |
 
 ### Text-to-3D / Image-to-3D
 

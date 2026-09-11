@@ -19,9 +19,9 @@ class AtlasKlingV30ProMotionControl:
                 "image": ("STRING", {"default": "", "tooltip": "Character reference image URL/base64"}),
                 "video": ("STRING", {"default": "", "tooltip": "Motion reference video URL"}),
                 "character_orientation": (
-                    ["video", "image"],
+                    ["image", "video"],
                     {
-                        "default": "video",
+                        "default": "image",
                         "tooltip": (
                             "Output framing mode. 'video' = follow the reference video orientation "
                             "(better for complex motion), 'image' = keep the reference image orientation "
@@ -46,7 +46,7 @@ class AtlasKlingV30ProMotionControl:
         atlas_client: AtlasClientHandle,
         image: str,
         video: str,
-        character_orientation: str,
+        character_orientation: str = "image",
         prompt: str = "",
         keep_original_sound: bool = True,
         poll_interval_sec: float = 2.0,

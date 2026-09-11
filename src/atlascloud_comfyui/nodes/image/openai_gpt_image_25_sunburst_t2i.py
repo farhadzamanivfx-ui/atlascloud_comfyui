@@ -52,11 +52,11 @@ class AtlasOpenAIGPTImage25SunburstTextToImage:
         poll_interval_sec: float = 2.0,
         timeout_sec: int = 600,
     ) -> Tuple[str, str, str]:
-        client = atlas_client.client
-
         p = (prompt or "").strip()
         if not p:
             raise RuntimeError("prompt is required")
+
+        client = atlas_client.client
 
         payload: Dict[str, Any] = {
             "model": "openai/gpt-image-2.5-sunburst/text-to-image",

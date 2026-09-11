@@ -94,10 +94,20 @@ from atlascloud_comfyui.nodes.video.google_gemini_omni_flash_t2v import AtlasGem
 from atlascloud_comfyui.nodes.video.google_gemini_omni_flash_i2v import AtlasGeminiOmniFlashImageToVideo
 from atlascloud_comfyui.nodes.video.google_gemini_omni_flash_r2v import AtlasGeminiOmniFlashReferenceToVideo
 from atlascloud_comfyui.nodes.video.google_gemini_omni_flash_video_edit import AtlasGeminiOmniFlashVideoEdit
+from atlascloud_comfyui.nodes.video.google_gemini_omni_1_1_flash_t2v import AtlasGeminiOmni11FlashTextToVideo
+from atlascloud_comfyui.nodes.video.google_gemini_omni_1_1_flash_i2v import AtlasGeminiOmni11FlashImageToVideo
+from atlascloud_comfyui.nodes.video.google_gemini_omni_1_1_flash_r2v import AtlasGeminiOmni11FlashReferenceToVideo
+from atlascloud_comfyui.nodes.video.google_gemini_omni_1_1_flash_video_edit import AtlasGeminiOmni11FlashVideoEdit
+from atlascloud_comfyui.nodes.video.google_gemini_omni_1_1_flash_video_extend import AtlasGeminiOmni11FlashVideoExtend
 from atlascloud_comfyui.nodes.video.xai_grok_imagine_video_t2v import AtlasGrokImagineVideoTextToVideo
 from atlascloud_comfyui.nodes.video.xai_grok_imagine_video_i2v import AtlasGrokImagineVideoImageToVideo
 from atlascloud_comfyui.nodes.video.xai_grok_imagine_video_v15_i2v import AtlasGrokImagineVideoV15ImageToVideo
 from atlascloud_comfyui.nodes.video.xai_grok_imagine_video_r2v import AtlasGrokImagineVideoReferenceToVideo
+from atlascloud_comfyui.nodes.video.xai_grok_imagine_video_v15_t2v import AtlasGrokImagineVideoV15TextToVideo
+from atlascloud_comfyui.nodes.video.xai_grok_imagine_video_v15_r2v import AtlasGrokImagineVideoV15ReferenceToVideo
+from atlascloud_comfyui.nodes.video.xai_grok_imagine_video_v15_developer_t2v import AtlasGrokImagineVideoV15DeveloperTextToVideo
+from atlascloud_comfyui.nodes.video.xai_grok_imagine_video_v15_developer_i2v import AtlasGrokImagineVideoV15DeveloperImageToVideo
+from atlascloud_comfyui.nodes.video.xai_grok_imagine_video_v15_developer_r2v import AtlasGrokImagineVideoV15DeveloperReferenceToVideo
 from atlascloud_comfyui.nodes.image.flux2_pro_t2i import AtlasFlux2ProTextToImage
 from atlascloud_comfyui.nodes.image.flux2_flex_edit import AtlasFlux2FlexEdit
 from atlascloud_comfyui.nodes.image.flux2_pro_edit import AtlasFlux2ProEdit
@@ -123,8 +133,6 @@ from atlascloud_comfyui.nodes.video.kling_v26_pro_avatar import AtlasKlingV26Pro
 from atlascloud_comfyui.nodes.video.kling_v26_std_avatar import AtlasKlingV26StdAvatar
 from atlascloud_comfyui.nodes.video.kling_v26_pro_motion_control import AtlasKlingV26ProMotionControl
 from atlascloud_comfyui.nodes.video.kling_v26_std_motion_control import AtlasKlingV26StdMotionControl
-from atlascloud_comfyui.nodes.video.kling_v30_pro_motion_control import AtlasKlingV30ProMotionControl
-from atlascloud_comfyui.nodes.video.kling_v30_std_motion_control import AtlasKlingV30StdMotionControl
 from atlascloud_comfyui.nodes.video.seedance_v15_pro_i2v import AtlasSeedanceV15ProImageToVideo
 from atlascloud_comfyui.nodes.video.seedance_v15_pro_i2v_spicy import AtlasSeedanceV15ProImageToVideoSpicy
 from atlascloud_comfyui.nodes.video.seedance_v15_pro_i2v_fast import AtlasSeedanceV15ProImageToVideoFast
@@ -136,6 +144,10 @@ from atlascloud_comfyui.nodes.image.seedream_v45_t2i import AtlasSeedreamV45Text
 from atlascloud_comfyui.nodes.image.seedream_v45_edit import AtlasSeedreamV45Edit
 from atlascloud_comfyui.nodes.image.seedream_v45_sequential_t2i import AtlasSeedreamV45SequentialTextToImage
 from atlascloud_comfyui.nodes.image.seedream_v45_edit_sequential import AtlasSeedreamV45EditSequential
+from atlascloud_comfyui.nodes.image.seedream_v47_t2i import AtlasSeedreamV47TextToImage
+from atlascloud_comfyui.nodes.image.seedream_v47_sequential_t2i import AtlasSeedreamV47SequentialTextToImage
+from atlascloud_comfyui.nodes.image.seedream_v47_edit import AtlasSeedreamV47Edit
+from atlascloud_comfyui.nodes.image.seedream_v47_edit_sequential import AtlasSeedreamV47EditSequential
 from atlascloud_comfyui.nodes.image.seedream_v4_t2i import AtlasSeedreamV4TextToImage
 from atlascloud_comfyui.nodes.image.seedream_v4_sequential_t2i import AtlasSeedreamV4SequentialTextToImage
 from atlascloud_comfyui.nodes.image.seedream_v4_edit import AtlasSeedreamV4Edit
@@ -210,16 +222,21 @@ from atlascloud_comfyui.nodes.image.openai_gpt_image_15_t2i import AtlasOpenAIGP
 from atlascloud_comfyui.nodes.image.openai_gpt_image_15_edit import AtlasOpenAIGPTImage15Edit
 from atlascloud_comfyui.nodes.image.openai_gpt_image_2_t2i import AtlasOpenAIGPTImage2TextToImage
 from atlascloud_comfyui.nodes.image.openai_gpt_image_2_edit import AtlasOpenAIGPTImage2Edit
-from atlascloud_comfyui.nodes.image.openai_gpt_image_2_dev_t2i import AtlasOpenAIGPTImage2DeveloperTextToImage
-from atlascloud_comfyui.nodes.image.openai_gpt_image_2_dev_edit import AtlasOpenAIGPTImage2DeveloperEdit
 from atlascloud_comfyui.nodes.image.openai_gpt_image_25_sunburst_t2i import AtlasOpenAIGPTImage25SunburstTextToImage
 from atlascloud_comfyui.nodes.image.openai_gpt_image_25_sunburst_edit import AtlasOpenAIGPTImage25SunburstEdit
 from atlascloud_comfyui.nodes.image.openai_gpt_image_25_flare_t2i import AtlasOpenAIGPTImage25FlareTextToImage
 from atlascloud_comfyui.nodes.image.openai_gpt_image_25_flare_edit import AtlasOpenAIGPTImage25FlareEdit
+from atlascloud_comfyui.nodes.deprecated.image.openai_gpt_image_2_dev_t2i import AtlasOpenAIGPTImage2DeveloperTextToImage
+from atlascloud_comfyui.nodes.deprecated.image.openai_gpt_image_2_dev_edit import AtlasOpenAIGPTImage2DeveloperEdit
 from atlascloud_comfyui.nodes.image.qwen_image_20_t2i import AtlasQwenImage20TextToImage
 from atlascloud_comfyui.nodes.image.qwen_image_20_edit import AtlasQwenImage20Edit
 from atlascloud_comfyui.nodes.image.qwen_image_20_pro_t2i import AtlasQwenImage20ProTextToImage
 from atlascloud_comfyui.nodes.image.qwen_image_20_pro_edit import AtlasQwenImage20ProEdit
+from atlascloud_comfyui.nodes.image.qwen_image_30_t2i import AtlasQwenImage30TextToImage
+from atlascloud_comfyui.nodes.image.qwen_image_30_edit import AtlasQwenImage30Edit
+from atlascloud_comfyui.nodes.image.qwen_image_30_pro_t2i import AtlasQwenImage30ProTextToImage
+from atlascloud_comfyui.nodes.image.qwen_image_30_pro_edit import AtlasQwenImage30ProEdit
+from atlascloud_comfyui.nodes.image.atlascloud_studio_product_visuals import AtlasStudioProductVisuals
 
 from atlascloud_comfyui.nodes.video.seedance_v1_pro_fast_t2v import AtlasSeedanceV1ProFastTextToVideo
 from atlascloud_comfyui.nodes.video.seedance_v1_pro_fast_i2v import AtlasSeedanceV1ProFastImageToVideo
@@ -241,6 +258,23 @@ from atlascloud_comfyui.nodes.video.atlascloud_wan_2_2_turbo_spicy_infinite_i2v_
 )
 from atlascloud_comfyui.nodes.video.atlascloud_wan_2_6_spicy_i2v import AtlasWan26SpicyImageToVideo
 from atlascloud_comfyui.nodes.video.atlascloud_wan_2_7_spicy_i2v import AtlasWan27SpicyImageToVideo
+from atlascloud_comfyui.nodes.video.atlascloud_wan_2_7_spicy_r2v import AtlasWan27SpicyReferenceToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_t2v import AtlasMinimaxH3TextToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_i2v import AtlasMinimaxH3ImageToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_r2v import AtlasMinimaxH3ReferenceToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_developer_t2v import AtlasMinimaxH3DeveloperTextToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_developer_i2v import AtlasMinimaxH3DeveloperImageToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_developer_r2v import AtlasMinimaxH3DeveloperReferenceToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_max_t2v import AtlasMinimaxH3MaxTextToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_max_i2v import AtlasMinimaxH3MaxImageToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_max_turbo_t2v import AtlasMinimaxH3MaxTurboTextToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_max_turbo_i2v import AtlasMinimaxH3MaxTurboImageToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_fast_t2v import AtlasMinimaxH3FastTextToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_fast_i2v import AtlasMinimaxH3FastImageToVideo
+from atlascloud_comfyui.nodes.video.minimax_h3_fast_r2v import AtlasMinimaxH3FastReferenceToVideo
+from atlascloud_comfyui.nodes.video.byteplus_video_upscaler import AtlasBytePlusVideoUpscaler
+from atlascloud_comfyui.nodes.video.tencent_video_upscaler import AtlasTencentVideoUpscaler
+from atlascloud_comfyui.nodes.image.tencent_image_upscaler import AtlasTencentImageUpscaler
 from atlascloud_comfyui.nodes.video.van25_t2v import AtlasAtlascloudVan25TextToVideo
 from atlascloud_comfyui.nodes.video.van25_i2v import AtlasAtlascloudVan25ImageToVideo
 from atlascloud_comfyui.nodes.video.van26_t2v import AtlasVan26TextToVideo
@@ -268,9 +302,14 @@ from atlascloud_comfyui.nodes.image.xai_grok_imagine_image_quality_t2i import At
 from atlascloud_comfyui.nodes.image.xai_grok_imagine_image_quality_edit import AtlasGrokImagineImageQualityEdit
 from atlascloud_comfyui.nodes.image.xai_grok_imagine_image_t2i import AtlasGrokImagineImageTextToImage
 from atlascloud_comfyui.nodes.image.xai_grok_imagine_image_edit import AtlasGrokImagineImageEdit
+from atlascloud_comfyui.nodes.image.xai_grok_imagine_image_20_t2i import AtlasGrokImagineImage20TextToImage
+from atlascloud_comfyui.nodes.image.xai_grok_imagine_image_20_edit import AtlasGrokImagineImage20Edit
+from atlascloud_comfyui.nodes.image.xai_grok_imagine_image_20_developer_t2i import AtlasGrokImagineImage20DeveloperTextToImage
+from atlascloud_comfyui.nodes.image.xai_grok_imagine_image_20_developer_edit import AtlasGrokImagineImage20DeveloperEdit
 
 from atlascloud_comfyui.nodes.image.seedream_v50_pro_t2i import AtlasSeedreamV50ProTextToImage
 from atlascloud_comfyui.nodes.image.seedream_v50_pro_edit import AtlasSeedreamV50ProEdit
+from atlascloud_comfyui.nodes.image.seedream_v50_pro_layer_decomposition import AtlasSeedreamV50ProLayerDecomposition
 from atlascloud_comfyui.nodes.image.nvidia_cosmos_3_super_t2i import AtlasCosmos3SuperTextToImage
 from atlascloud_comfyui.nodes.video.nvidia_cosmos_3_super_i2v import AtlasCosmos3SuperImageToVideo
 from atlascloud_comfyui.nodes.image.ideogram_v4_turbo_t2i import AtlasIdeogramV4TurboTextToImage
@@ -279,6 +318,14 @@ from atlascloud_comfyui.nodes.image.ideogram_v4_quality_t2i import AtlasIdeogram
 from atlascloud_comfyui.nodes.video.ltx_2_3_quality_t2v import AtlasLtx23QualityTextToVideo
 from atlascloud_comfyui.nodes.video.ltx_2_3_quality_i2v import AtlasLtx23QualityImageToVideo
 from atlascloud_comfyui.nodes.video.ltx_2_3_quality_extend_video import AtlasLtx23QualityExtendVideo
+
+from atlascloud_comfyui.nodes.video.flux3_t2v import AtlasFlux3TextToVideo
+from atlascloud_comfyui.nodes.video.flux3_i2v import AtlasFlux3ImageToVideo
+from atlascloud_comfyui.nodes.video.flux3_first_last_frame_to_video import AtlasFlux3FirstLastFrameToVideo
+from atlascloud_comfyui.nodes.video.flux3_keyframes_to_video import AtlasFlux3KeyframesToVideo
+from atlascloud_comfyui.nodes.video.flux3_extend_video import AtlasFlux3ExtendVideo
+from atlascloud_comfyui.nodes.video.kling_v30_pro_motion_control import AtlasKlingV30ProMotionControl
+from atlascloud_comfyui.nodes.video.kling_v30_std_motion_control import AtlasKlingV30StdMotionControl
 
 from atlascloud_comfyui.nodes.video.kling_v16_multi_i2v_pro import AtlasKlingV16MultiI2VPro
 from atlascloud_comfyui.nodes.video.kling_v16_multi_i2v_standard import AtlasKlingV16MultiI2VStandard
@@ -301,16 +348,15 @@ from atlascloud_comfyui.nodes.deprecated.video.seedance_v1_lite_i2v_1080p import
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_t2v import AtlasSeedance20TextToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_i2v import AtlasSeedance20ImageToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_r2v import AtlasSeedance20ReferenceToVideo
-from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_r2v import AtlasSeedance25ReferenceToVideo
-from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_t2v import AtlasSeedance25TextToVideo
-from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_i2v import AtlasSeedance25ImageToVideo
-from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_r2v_multi import AtlasSeedance25ReferenceToVideoMulti
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_fast_t2v import AtlasSeedance20FastTextToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_fast_i2v import AtlasSeedance20FastImageToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_fast_r2v import AtlasSeedance20FastReferenceToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_mini_t2v import AtlasSeedance20MiniTextToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_mini_i2v import AtlasSeedance20MiniImageToVideo
 from atlascloud_comfyui.nodes.video.bytedance_seedance_2_0_mini_r2v import AtlasSeedance20MiniReferenceToVideo
+from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_t2v import AtlasSeedance25TextToVideo
+from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_i2v import AtlasSeedance25ImageToVideo
+from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_r2v import AtlasSeedance25ReferenceToVideo
 from atlascloud_comfyui.nodes.video.bytedance_avatar_omni_human_v15 import AtlasAvatarOmniHumanV15
 from atlascloud_comfyui.nodes.image.atlascloud_image_upscaler import AtlasImageUpscaler
 from atlascloud_comfyui.nodes.image.atlascloud_face_swap_image import AtlasFaceSwapImage
@@ -326,6 +372,17 @@ from atlascloud_comfyui.nodes.video.alibaba_wan_2_7_t2v import AtlasWan27TextToV
 from atlascloud_comfyui.nodes.video.alibaba_wan_2_7_i2v import AtlasWan27ImageToVideo
 from atlascloud_comfyui.nodes.video.alibaba_wan_2_7_r2v import AtlasWan27ReferenceToVideo
 from atlascloud_comfyui.nodes.video.alibaba_wan_2_7_video_edit import AtlasWan27VideoEdit
+from atlascloud_comfyui.nodes.video.alibaba_wan_3_0_t2v import AtlasWan30TextToVideo
+from atlascloud_comfyui.nodes.video.alibaba_wan_3_0_i2v import AtlasWan30ImageToVideo
+from atlascloud_comfyui.nodes.video.alibaba_wan_3_0_r2v import AtlasWan30ReferenceToVideo
+from atlascloud_comfyui.nodes.video.alibaba_wan_3_0_prime_t2v import AtlasWan30PrimeTextToVideo
+from atlascloud_comfyui.nodes.video.alibaba_wan_3_0_prime_i2v import AtlasWan30PrimeImageToVideo
+from atlascloud_comfyui.nodes.video.alibaba_wan_3_0_prime_r2v import AtlasWan30PrimeReferenceToVideo
+from atlascloud_comfyui.nodes.video.atlascloud_studio_food_motion import AtlasStudioFoodMotion
+from atlascloud_comfyui.nodes.video.atlascloud_studio_virtual_try_on import AtlasStudioVirtualTryOn
+from atlascloud_comfyui.nodes.video.atlascloud_studio_ugc_ad import AtlasStudioUgcAd
+from atlascloud_comfyui.nodes.video.atlascloud_studio_trend_remix import AtlasStudioTrendRemix
+from atlascloud_comfyui.nodes.video.atlascloud_studio_tvc_maker import AtlasStudioTvcMaker
 from atlascloud_comfyui.nodes.video.alibaba_happyhorse_1_0_t2v import AtlasHappyHorse10TextToVideo
 from atlascloud_comfyui.nodes.video.alibaba_happyhorse_1_0_i2v import AtlasHappyHorse10ImageToVideo
 from atlascloud_comfyui.nodes.video.alibaba_happyhorse_1_0_r2v import AtlasHappyHorse10ReferenceToVideo
@@ -360,6 +417,12 @@ from atlascloud_comfyui.nodes.image.youchuan_v81_i2i import AtlasYouchuanV81Imag
 from atlascloud_comfyui.nodes.image.youchuan_v81_blend import AtlasYouchuanV81Blend
 from atlascloud_comfyui.nodes.image.youchuan_v81_remove_bg import AtlasYouchuanV81RemoveBackground
 from atlascloud_comfyui.nodes.image.youchuan_v81_style_transfer import AtlasYouchuanV81StyleTransfer
+from atlascloud_comfyui.nodes.video.youchuan_v82_i2v import AtlasYouchuanV82ImageToVideo
+from atlascloud_comfyui.nodes.image.youchuan_v82_t2i import AtlasYouchuanV82TextToImage
+from atlascloud_comfyui.nodes.image.youchuan_v82_i2i import AtlasYouchuanV82ImageToImage
+from atlascloud_comfyui.nodes.image.youchuan_v82_blend import AtlasYouchuanV82Blend
+from atlascloud_comfyui.nodes.image.youchuan_v82_remove_bg import AtlasYouchuanV82RemoveBackground
+from atlascloud_comfyui.nodes.image.youchuan_v82_style_transfer import AtlasYouchuanV82StyleTransfer
 from atlascloud_comfyui.nodes.video.kling_v30_4k_i2v import AtlasKlingV304KImageToVideo
 from atlascloud_comfyui.nodes.video.kling_v30_4k_t2v import AtlasKlingV304KTextToVideo
 from atlascloud_comfyui.nodes.video.kling_video_o3_4k_i2v import AtlasKlingVideoO34KImageToVideo
@@ -370,6 +433,12 @@ from atlascloud_comfyui.nodes.image.mai_image_25_t2i import AtlasMAIImage25TextT
 from atlascloud_comfyui.nodes.image.mai_image_25_flash_t2i import AtlasMAIImage25FlashTextToImage
 from atlascloud_comfyui.nodes.image.mai_image_25_edit import AtlasMAIImage25Edit
 from atlascloud_comfyui.nodes.image.mai_image_25_flash_edit import AtlasMAIImage25FlashEdit
+from atlascloud_comfyui.nodes.image.mai_image_25_pro_t2i import AtlasMAIImage25ProTextToImage
+from atlascloud_comfyui.nodes.image.mai_image_25_pro_edit import AtlasMAIImage25ProEdit
+from atlascloud_comfyui.nodes.image.mai_image_26_t2i import AtlasMAIImage26TextToImage
+from atlascloud_comfyui.nodes.image.mai_image_26_flash_t2i import AtlasMAIImage26FlashTextToImage
+from atlascloud_comfyui.nodes.image.mai_image_26_edit import AtlasMAIImage26Edit
+from atlascloud_comfyui.nodes.image.mai_image_26_flash_edit import AtlasMAIImage26FlashEdit
 from atlascloud_comfyui.nodes.video.vidu_q1_t2v import AtlasViduQ1TextToVideo
 from atlascloud_comfyui.nodes.video.vidu_q1_i2v import AtlasViduQ1ImageToVideo
 from atlascloud_comfyui.nodes.video.vidu_q1_start_end import AtlasViduQ1StartEndToVideo
@@ -399,14 +468,17 @@ from atlascloud_comfyui.nodes.utils.image_preview import AtlasImagePreviewURL
 from atlascloud_comfyui.nodes.utils.video_previewer import AtlasVideoPreviewer
 from atlascloud_comfyui.nodes.utils.image_to_base64 import AtlasImageToBase64
 from atlascloud_comfyui.nodes.utils.multi_image_to_base64 import AtlasMultiImageToBase64
-from atlascloud_comfyui.nodes.utils.multi_image_to_base64_30 import AtlasMultiImageToBase64_30
 from atlascloud_comfyui.nodes.utils.upload_videos_to_asset import AtlasUploadVideosToAsset
-from atlascloud_comfyui.nodes.utils.upload_videos_to_asset_10 import AtlasUploadVideosToAsset_10
 from atlascloud_comfyui.nodes.utils.upload_audio_to_asset import AtlasUploadAudioToAsset
 from atlascloud_comfyui.nodes.utils.upload_audios_to_asset import AtlasUploadAudiosToAsset
-from atlascloud_comfyui.nodes.utils.upload_audios_to_asset_10 import AtlasUploadAudiosToAsset_10
 from atlascloud_comfyui.nodes.utils.multi_image_to_seedance_assets import AtlasMultiImageToSeedanceAssets
 
+
+# --- community edition additions (not in upstream AtlasCloudAI/atlascloud_comfyui)
+from atlascloud_comfyui.nodes.video.bytedance_seedance_2_5_r2v_multi import AtlasSeedance25ReferenceToVideoMulti
+from atlascloud_comfyui.nodes.utils.multi_image_to_base64_30 import AtlasMultiImageToBase64_30
+from atlascloud_comfyui.nodes.utils.upload_videos_to_asset_10 import AtlasUploadVideosToAsset_10
+from atlascloud_comfyui.nodes.utils.upload_audios_to_asset_10 import AtlasUploadAudiosToAsset_10
 from atlascloud_comfyui.nodes.three_d.bytedance_seed3d_v20_image_to_3d import AtlasSeed3DV20ImageTo3D
 from atlascloud_comfyui.nodes.three_d.tencent_hunyuan3d_rapid_image_to_3d import AtlasHunyuan3DRapidImageTo3D
 from atlascloud_comfyui.nodes.three_d.tencent_hunyuan3d_rapid_text_to_3d import AtlasHunyuan3DRapidTextTo3D
@@ -414,9 +486,7 @@ from atlascloud_comfyui.nodes.three_d.tencent_hunyuan3d_pro_image_to_3d import A
 from atlascloud_comfyui.nodes.three_d.tencent_hunyuan3d_pro_text_to_3d import AtlasHunyuan3DProTextTo3D
 from atlascloud_comfyui.nodes.three_d.tripo_h31_text_to_3d import AtlasTripoH31TextTo3D
 from atlascloud_comfyui.nodes.three_d.tripo_h31_image_to_3d import AtlasTripoH31ImageTo3D
-
 from atlascloud_comfyui.nodes.utils.download_model_3d import AtlasDownloadModel3D
-
 
 NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Client": AtlasClientNode,
@@ -433,6 +503,12 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud MAI-Image-2.5-Flash Text-to-Image": AtlasMAIImage25FlashTextToImage,
     "AtlasCloud MAI-Image-2.5 Edit": AtlasMAIImage25Edit,
     "AtlasCloud MAI-Image-2.5-Flash Edit": AtlasMAIImage25FlashEdit,
+    "AtlasCloud MAI-Image-2.5-Pro Text-to-Image": AtlasMAIImage25ProTextToImage,
+    "AtlasCloud MAI-Image-2.5-Pro Edit": AtlasMAIImage25ProEdit,
+    "AtlasCloud MAI-Image-2.6 Text-to-Image": AtlasMAIImage26TextToImage,
+    "AtlasCloud MAI-Image-2.6-Flash Text-to-Image": AtlasMAIImage26FlashTextToImage,
+    "AtlasCloud MAI-Image-2.6 Edit": AtlasMAIImage26Edit,
+    "AtlasCloud MAI-Image-2.6-Flash Edit": AtlasMAIImage26FlashEdit,
     "AtlasCloud WAN2.5 Image-Edit": AtlasWan25ImageEdit,
     "AtlasCloud WAN2.6 Image-Edit": AtlasWAN26ImageEdit,
     "AtlasCloud WAN2.6 Image-to-Video": AtlasWAN26ImageToVideo,
@@ -459,8 +535,6 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Kling V2.6 Std Avatar": AtlasKlingV26StdAvatar,
     "AtlasCloud Kling V2.6 Pro Motion-Control": AtlasKlingV26ProMotionControl,
     "AtlasCloud Kling V2.6 Std Motion-Control": AtlasKlingV26StdMotionControl,
-    "AtlasCloud Kling V3.0 Pro Motion-Control": AtlasKlingV30ProMotionControl,
-    "AtlasCloud Kling V3.0 Std Motion-Control": AtlasKlingV30StdMotionControl,
     "AtlasCloud Kling V2.6 Pro Image-to-Video": AtlasKlingV26ProImageToVideo,
     "AtlasCloud Kling Video O1 Text-to-Video": AtlasKlingVideoO1TextToVideo,
     "AtlasCloud Kling Video O1 Image-to-Video": AtlasKlingVideoO1ImageToVideo,
@@ -475,16 +549,15 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Seedance 2.0 Text-to-Video": AtlasSeedance20TextToVideo,
     "AtlasCloud Seedance 2.0 Image-to-Video": AtlasSeedance20ImageToVideo,
     "AtlasCloud Seedance 2.0 Reference-to-Video": AtlasSeedance20ReferenceToVideo,
-    "AtlasCloud Seedance 2.5 Text-to-Video": AtlasSeedance25TextToVideo,
-    "AtlasCloud Seedance 2.5 Image-to-Video": AtlasSeedance25ImageToVideo,
-    "AtlasCloud Seedance 2.5 Reference-to-Video": AtlasSeedance25ReferenceToVideo,
-    "AtlasCloud Seedance 2.5 Reference-to-Video (Multi 30img/10vid)": AtlasSeedance25ReferenceToVideoMulti,
     "AtlasCloud Seedance 2.0 Fast Text-to-Video": AtlasSeedance20FastTextToVideo,
     "AtlasCloud Seedance 2.0 Fast Image-to-Video": AtlasSeedance20FastImageToVideo,
     "AtlasCloud Seedance 2.0 Fast Reference-to-Video": AtlasSeedance20FastReferenceToVideo,
     "AtlasCloud Seedance 2.0 Mini Text-to-Video": AtlasSeedance20MiniTextToVideo,
     "AtlasCloud Seedance 2.0 Mini Image-to-Video": AtlasSeedance20MiniImageToVideo,
     "AtlasCloud Seedance 2.0 Mini Reference-to-Video": AtlasSeedance20MiniReferenceToVideo,
+    "AtlasCloud Seedance 2.5 Text-to-Video": AtlasSeedance25TextToVideo,
+    "AtlasCloud Seedance 2.5 Image-to-Video": AtlasSeedance25ImageToVideo,
+    "AtlasCloud Seedance 2.5 Reference-to-Video": AtlasSeedance25ReferenceToVideo,
     "AtlasCloud Avatar Omni Human 1.5": AtlasAvatarOmniHumanV15,
     "AtlasCloud Image Upscaler": AtlasImageUpscaler,
     "AtlasCloud Face Swap (Image)": AtlasFaceSwapImage,
@@ -500,6 +573,17 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud WAN2.7 Image-to-Video": AtlasWan27ImageToVideo,
     "AtlasCloud WAN2.7 Reference-to-Video": AtlasWan27ReferenceToVideo,
     "AtlasCloud WAN2.7 Video-Edit": AtlasWan27VideoEdit,
+    "AtlasCloud WAN3.0 Text-to-Video": AtlasWan30TextToVideo,
+    "AtlasCloud WAN3.0 Image-to-Video": AtlasWan30ImageToVideo,
+    "AtlasCloud WAN3.0 Reference-to-Video": AtlasWan30ReferenceToVideo,
+    "AtlasCloud WAN3.0-Prime Text-to-Video": AtlasWan30PrimeTextToVideo,
+    "AtlasCloud WAN3.0-Prime Image-to-Video": AtlasWan30PrimeImageToVideo,
+    "AtlasCloud WAN3.0-Prime Reference-to-Video": AtlasWan30PrimeReferenceToVideo,
+    "AtlasCloud Studio Food Motion": AtlasStudioFoodMotion,
+    "AtlasCloud Studio Virtual Try-On": AtlasStudioVirtualTryOn,
+    "AtlasCloud Studio UGC Ad": AtlasStudioUgcAd,
+    "AtlasCloud Studio Trend Remix": AtlasStudioTrendRemix,
+    "AtlasCloud Studio TVC Maker": AtlasStudioTvcMaker,
     "AtlasCloud HappyHorse 1.0 Text-to-Video": AtlasHappyHorse10TextToVideo,
     "AtlasCloud HappyHorse 1.0 Image-to-Video": AtlasHappyHorse10ImageToVideo,
     "AtlasCloud HappyHorse 1.0 Reference-to-Video": AtlasHappyHorse10ReferenceToVideo,
@@ -523,6 +607,10 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Seedream V4.5 Edit": AtlasSeedreamV45Edit,
     "AtlasCloud Seedream V4.5 Sequential Text-to-Image": AtlasSeedreamV45SequentialTextToImage,
     "AtlasCloud Seedream V4.5 Edit Sequential": AtlasSeedreamV45EditSequential,
+    "AtlasCloud Seedream V4.7 Text-to-Image": AtlasSeedreamV47TextToImage,
+    "AtlasCloud Seedream V4.7 Sequential Text-to-Image": AtlasSeedreamV47SequentialTextToImage,
+    "AtlasCloud Seedream V4.7 Edit": AtlasSeedreamV47Edit,
+    "AtlasCloud Seedream V4.7 Edit Sequential": AtlasSeedreamV47EditSequential,
     "AtlasCloud ZImage Turbo Lora Text-to-Image": AtlasZImageTurboLoraTextToImage,
     "AtlasCloud ZImage Turbo Text-to-Image": AtlasZImageTurboTextToImage,
     "AtlasCloud Nano Banana Pro Text-to-Image Ultra": AtlasNanoBananaProTextToImageUltra,
@@ -537,12 +625,9 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Video Preview": AtlasVideoPreviewer,
     "AtlasCloud Image to Base64": AtlasImageToBase64,
     "AtlasCloud Multi Image to Base64": AtlasMultiImageToBase64,
-    "AtlasCloud Multi Image to Base64 (30)": AtlasMultiImageToBase64_30,
     "AtlasCloud Upload Videos to Asset": AtlasUploadVideosToAsset,
-    "AtlasCloud Upload Videos to Asset (10)": AtlasUploadVideosToAsset_10,
     "AtlasCloud Upload Audio to Asset": AtlasUploadAudioToAsset,
     "AtlasCloud Upload Audios to Asset": AtlasUploadAudiosToAsset,
-    "AtlasCloud Upload Audios to Asset (10)": AtlasUploadAudiosToAsset_10,
     "AtlasCloud Multi Image to Seedance Assets": AtlasMultiImageToSeedanceAssets,
     "AtlasCloud Kling V3.0 Pro Text-to-Video": AtlasKlingV30ProTextToVideo,
     "AtlasCloud Kling V3.0 Std Text-to-Video": AtlasKlingV30StdTextToVideo,
@@ -612,6 +697,12 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Youchuan V8.1 Blend": AtlasYouchuanV81Blend,
     "AtlasCloud Youchuan V8.1 Remove Background": AtlasYouchuanV81RemoveBackground,
     "AtlasCloud Youchuan V8.1 Style Transfer": AtlasYouchuanV81StyleTransfer,
+    "AtlasCloud Youchuan V8.2 Image-to-Video": AtlasYouchuanV82ImageToVideo,
+    "AtlasCloud Youchuan V8.2 Text-to-Image": AtlasYouchuanV82TextToImage,
+    "AtlasCloud Youchuan V8.2 Image-to-Image": AtlasYouchuanV82ImageToImage,
+    "AtlasCloud Youchuan V8.2 Blend": AtlasYouchuanV82Blend,
+    "AtlasCloud Youchuan V8.2 Remove Background": AtlasYouchuanV82RemoveBackground,
+    "AtlasCloud Youchuan V8.2 Style Transfer": AtlasYouchuanV82StyleTransfer,
     "AtlasCloud Kling V3.0 4K Image-to-Video": AtlasKlingV304KImageToVideo,
     "AtlasCloud Kling V3.0 4K Text-to-Video": AtlasKlingV304KTextToVideo,
     "AtlasCloud Kling V3.0 Turbo Image-to-Video": AtlasKlingV30TurboImageToVideo,
@@ -632,6 +723,11 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Gemini Omni Flash Image-to-Video": AtlasGeminiOmniFlashImageToVideo,
     "AtlasCloud Gemini Omni Flash Reference-to-Video": AtlasGeminiOmniFlashReferenceToVideo,
     "AtlasCloud Gemini Omni Flash Video Edit": AtlasGeminiOmniFlashVideoEdit,
+    "AtlasCloud Gemini Omni 1.1 Flash Text-to-Video": AtlasGeminiOmni11FlashTextToVideo,
+    "AtlasCloud Gemini Omni 1.1 Flash Image-to-Video": AtlasGeminiOmni11FlashImageToVideo,
+    "AtlasCloud Gemini Omni 1.1 Flash Reference-to-Video": AtlasGeminiOmni11FlashReferenceToVideo,
+    "AtlasCloud Gemini Omni 1.1 Flash Video Edit": AtlasGeminiOmni11FlashVideoEdit,
+    "AtlasCloud Gemini Omni 1.1 Flash Video Extend": AtlasGeminiOmni11FlashVideoExtend,
     "AtlasCloud VEO3.1 Reference-to-Video": AtlasVeo31ReferenceToVideo,
     "AtlasCloud VEO3.1 Image-to-Video": AtlasVeo31ImageToVideo,
     "AtlasCloud VEO3 Image-to-Video": AtlasVeo3ImageToVideo,
@@ -659,6 +755,23 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Wan 2.2 Turbo Spicy Infinite Image-to-Video LoRA": AtlasWan22TurboSpicyInfiniteImageToVideoLoRA,
     "AtlasCloud WAN2.6 Spicy Image-to-Video": AtlasWan26SpicyImageToVideo,
     "AtlasCloud WAN2.7 Spicy Image-to-Video": AtlasWan27SpicyImageToVideo,
+    "AtlasCloud WAN2.7 Spicy Reference-to-Video": AtlasWan27SpicyReferenceToVideo,
+    "AtlasCloud MiniMax H3 Text-to-Video": AtlasMinimaxH3TextToVideo,
+    "AtlasCloud MiniMax H3 Image-to-Video": AtlasMinimaxH3ImageToVideo,
+    "AtlasCloud MiniMax H3 Reference-to-Video": AtlasMinimaxH3ReferenceToVideo,
+    "AtlasCloud MiniMax H3-Developer Text-to-Video": AtlasMinimaxH3DeveloperTextToVideo,
+    "AtlasCloud MiniMax H3-Developer Image-to-Video": AtlasMinimaxH3DeveloperImageToVideo,
+    "AtlasCloud MiniMax H3-Developer Reference-to-Video": AtlasMinimaxH3DeveloperReferenceToVideo,
+    "AtlasCloud MiniMax H3 Max Text-to-Video": AtlasMinimaxH3MaxTextToVideo,
+    "AtlasCloud MiniMax H3 Max Image-to-Video": AtlasMinimaxH3MaxImageToVideo,
+    "AtlasCloud MiniMax H3 Max Turbo Text-to-Video": AtlasMinimaxH3MaxTurboTextToVideo,
+    "AtlasCloud MiniMax H3 Max Turbo Image-to-Video": AtlasMinimaxH3MaxTurboImageToVideo,
+    "AtlasCloud MiniMax H3 Fast Text-to-Video": AtlasMinimaxH3FastTextToVideo,
+    "AtlasCloud MiniMax H3 Fast Image-to-Video": AtlasMinimaxH3FastImageToVideo,
+    "AtlasCloud MiniMax H3 Fast Reference-to-Video": AtlasMinimaxH3FastReferenceToVideo,
+    "AtlasCloud Tencent Image Upscaler": AtlasTencentImageUpscaler,
+    "AtlasCloud Tencent Video Upscaler": AtlasTencentVideoUpscaler,
+    "AtlasCloud BytePlus Video Upscaler": AtlasBytePlusVideoUpscaler,
     "AtlasCloud Imagen4 Ultra Text-to-Image": AtlasImagen4UltraTextToImage,
     "AtlasCloud Imagen3 Text-to-Image": AtlasImagen3TextToImage,
     "AtlasCloud Imagen3 Fast Text-to-Image": AtlasImagen3FastTextToImage,
@@ -701,6 +814,11 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Qwen Image 2.0 Edit": AtlasQwenImage20Edit,
     "AtlasCloud Qwen Image 2.0 Pro Text-to-Image": AtlasQwenImage20ProTextToImage,
     "AtlasCloud Qwen Image 2.0 Pro Edit": AtlasQwenImage20ProEdit,
+    "AtlasCloud Qwen Image 3.0 Text-to-Image": AtlasQwenImage30TextToImage,
+    "AtlasCloud Qwen Image 3.0 Edit": AtlasQwenImage30Edit,
+    "AtlasCloud Qwen Image 3.0 Pro Text-to-Image": AtlasQwenImage30ProTextToImage,
+    "AtlasCloud Qwen Image 3.0 Pro Edit": AtlasQwenImage30ProEdit,
+    "AtlasCloud Studio Product Visuals": AtlasStudioProductVisuals,
     "AtlasCloud Seedance V1 Pro Fast Text-to-Video": AtlasSeedanceV1ProFastTextToVideo,
     "AtlasCloud Seedance V1 Pro Fast Image-to-Video": AtlasSeedanceV1ProFastImageToVideo,
     "AtlasCloud Seedance V1 Pro Image-to-Video 1080p": AtlasBytedanceSeedanceV1ProI2V1080p,
@@ -740,6 +858,10 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Grok Imagine IQ Edit": AtlasGrokImagineImageQualityEdit,
     "AtlasCloud Grok Imagine Text-to-Image": AtlasGrokImagineImageTextToImage,
     "AtlasCloud Grok Imagine Edit": AtlasGrokImagineImageEdit,
+    "AtlasCloud Grok Imagine Image 2.0 Text-to-Image": AtlasGrokImagineImage20TextToImage,
+    "AtlasCloud Grok Imagine Image 2.0 Edit": AtlasGrokImagineImage20Edit,
+    "AtlasCloud Grok Imagine Image 2.0 Developer Text-to-Image": AtlasGrokImagineImage20DeveloperTextToImage,
+    "AtlasCloud Grok Imagine Image 2.0 Developer Edit": AtlasGrokImagineImage20DeveloperEdit,
     "AtlasCloud Kling V2.0 I2V Master": AtlasKlingV20I2VMaster,
     "AtlasCloud VEO3 Fast Image-to-Video": AtlasVeo3FastImageToVideo,
     "AtlasCloud Kling V2.1 T2V Master": AtlasKlingV21T2VMaster,
@@ -768,6 +890,11 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Grok Imagine Video Image-to-Video": AtlasGrokImagineVideoImageToVideo,
     "AtlasCloud Grok Imagine Video v1.5 Image-to-Video": AtlasGrokImagineVideoV15ImageToVideo,
     "AtlasCloud Grok Imagine Video Reference-to-Video": AtlasGrokImagineVideoReferenceToVideo,
+    "AtlasCloud Grok Imagine Video v1.5 Text-to-Video": AtlasGrokImagineVideoV15TextToVideo,
+    "AtlasCloud Grok Imagine Video v1.5 Reference-to-Video": AtlasGrokImagineVideoV15ReferenceToVideo,
+    "AtlasCloud Grok Imagine Video v1.5 Developer Text-to-Video": AtlasGrokImagineVideoV15DeveloperTextToVideo,
+    "AtlasCloud Grok Imagine Video v1.5 Developer Image-to-Video": AtlasGrokImagineVideoV15DeveloperImageToVideo,
+    "AtlasCloud Grok Imagine Video v1.5 Developer Reference-to-Video": AtlasGrokImagineVideoV15DeveloperReferenceToVideo,
     "AtlasCloud FLUX.2 Pro Text-to-Image": AtlasFlux2ProTextToImage,
     "AtlasCloud FLUX.2 Flex Edit": AtlasFlux2FlexEdit,
     "AtlasCloud FLUX.2 Pro Edit": AtlasFlux2ProEdit,
@@ -775,6 +902,7 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud Grok Imagine Video Extend": AtlasGrokImagineVideoExtend,
     "AtlasCloud Seedream V5.0 Pro Text-to-Image": AtlasSeedreamV50ProTextToImage,
     "AtlasCloud Seedream V5.0 Pro Edit": AtlasSeedreamV50ProEdit,
+    "AtlasCloud Seedream V5.0 Pro Layer Decomposition": AtlasSeedreamV50ProLayerDecomposition,
     "AtlasCloud Cosmos 3 Super Text-to-Image": AtlasCosmos3SuperTextToImage,
     "AtlasCloud Cosmos 3 Super Image-to-Video": AtlasCosmos3SuperImageToVideo,
     "AtlasCloud Ideogram V4 Turbo Text-to-Image": AtlasIdeogramV4TurboTextToImage,
@@ -782,6 +910,20 @@ NODE_CLASS_MAPPINGS: Dict[str, Type[Any]] = {
     "AtlasCloud LTX 2.3 Quality Text-to-Video": AtlasLtx23QualityTextToVideo,
     "AtlasCloud LTX 2.3 Quality Image-to-Video": AtlasLtx23QualityImageToVideo,
     "AtlasCloud LTX 2.3 Quality Extend Video": AtlasLtx23QualityExtendVideo,
+    "AtlasCloud FLUX 3 Text-to-Video": AtlasFlux3TextToVideo,
+    "AtlasCloud FLUX 3 Image-to-Video": AtlasFlux3ImageToVideo,
+    "AtlasCloud FLUX 3 First & Last Frame to Video": AtlasFlux3FirstLastFrameToVideo,
+    "AtlasCloud FLUX 3 Keyframes to Video": AtlasFlux3KeyframesToVideo,
+    "AtlasCloud FLUX 3 Extend Video": AtlasFlux3ExtendVideo,
+    "AtlasCloud Kling V3.0 Pro Motion Control": AtlasKlingV30ProMotionControl,
+    "AtlasCloud Kling V3.0 Std Motion Control": AtlasKlingV30StdMotionControl,
+    # community edition additions
+    "AtlasCloud Kling V3.0 Pro Motion-Control": AtlasKlingV30ProMotionControl,
+    "AtlasCloud Kling V3.0 Std Motion-Control": AtlasKlingV30StdMotionControl,
+    "AtlasCloud Seedance 2.5 Reference-to-Video (Multi 30img/10vid)": AtlasSeedance25ReferenceToVideoMulti,
+    "AtlasCloud Multi Image to Base64 (30)": AtlasMultiImageToBase64_30,
+    "AtlasCloud Upload Videos to Asset (10)": AtlasUploadVideosToAsset_10,
+    "AtlasCloud Upload Audios to Asset (10)": AtlasUploadAudiosToAsset_10,
     "AtlasCloud Seed3D 2.0 Image-to-3D": AtlasSeed3DV20ImageTo3D,
     "AtlasCloud Hunyuan3D Rapid Image-to-3D": AtlasHunyuan3DRapidImageTo3D,
     "AtlasCloud Hunyuan3D Rapid Text-to-3D": AtlasHunyuan3DRapidTextTo3D,
@@ -808,6 +950,8 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud MAI-Image-2.5-Flash Text-to-Image": "AtlasCloud MAI-Image-2.5-Flash Text-to-Image",
     "AtlasCloud MAI-Image-2.5 Edit": "AtlasCloud MAI-Image-2.5 Edit",
     "AtlasCloud MAI-Image-2.5-Flash Edit": "AtlasCloud MAI-Image-2.5-Flash Edit",
+    "AtlasCloud MAI-Image-2.5-Pro Text-to-Image": "AtlasCloud MAI-Image-2.5-Pro Text-to-Image",
+    "AtlasCloud MAI-Image-2.5-Pro Edit": "AtlasCloud MAI-Image-2.5-Pro Edit",
     "AtlasCloud WAN2.5 Image-Edit": "AtlasCloud WAN2.5 Image-Edit",
     "AtlasCloud WAN2.6 Image-Edit": "AtlasCloud WAN2.6 Image-Edit",
     "AtlasCloud WAN2.6 Image-to-Video": "AtlasCloud WAN2.6 Image-to-Video",
@@ -834,8 +978,6 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Kling V2.6 Std Avatar": "AtlasCloud Kling V2.6 Std Avatar",
     "AtlasCloud Kling V2.6 Pro Motion-Control": "AtlasCloud Kling V2.6 Pro Motion-Control",
     "AtlasCloud Kling V2.6 Std Motion-Control": "AtlasCloud Kling V2.6 Std Motion-Control",
-    "AtlasCloud Kling V3.0 Pro Motion-Control": "AtlasCloud Kling V3.0 Pro Motion-Control",
-    "AtlasCloud Kling V3.0 Std Motion-Control": "AtlasCloud Kling V3.0 Std Motion-Control",
     "AtlasCloud Kling V2.6 Pro Image-to-Video": "AtlasCloud Kling V2.6 Pro Image-to-Video",
     "AtlasCloud Kling Video O1 Text-to-Video": "AtlasCloud Kling Video O1 Text-to-Video",
     "AtlasCloud Kling Video O1 Image-to-Video": "AtlasCloud Kling Video O1 Image-to-Video",
@@ -849,16 +991,15 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Seedance 2.0 Text-to-Video": "AtlasCloud Seedance 2.0 Text-to-Video",
     "AtlasCloud Seedance 2.0 Image-to-Video": "AtlasCloud Seedance 2.0 Image-to-Video",
     "AtlasCloud Seedance 2.0 Reference-to-Video": "AtlasCloud Seedance 2.0 Reference-to-Video",
-    "AtlasCloud Seedance 2.5 Text-to-Video": "AtlasCloud Seedance 2.5 Text-to-Video",
-    "AtlasCloud Seedance 2.5 Image-to-Video": "AtlasCloud Seedance 2.5 Image-to-Video",
-    "AtlasCloud Seedance 2.5 Reference-to-Video": "AtlasCloud Seedance 2.5 Reference-to-Video",
-    "AtlasCloud Seedance 2.5 Reference-to-Video (Multi 30img/10vid)": "AtlasCloud Seedance 2.5 Reference-to-Video (Multi 30img/10vid)",
     "AtlasCloud Seedance 2.0 Fast Text-to-Video": "AtlasCloud Seedance 2.0 Fast Text-to-Video",
     "AtlasCloud Seedance 2.0 Fast Image-to-Video": "AtlasCloud Seedance 2.0 Fast Image-to-Video",
     "AtlasCloud Seedance 2.0 Fast Reference-to-Video": "AtlasCloud Seedance 2.0 Fast Reference-to-Video",
     "AtlasCloud Seedance 2.0 Mini Text-to-Video": "AtlasCloud Seedance 2.0 Mini Text-to-Video",
     "AtlasCloud Seedance 2.0 Mini Image-to-Video": "AtlasCloud Seedance 2.0 Mini Image-to-Video",
     "AtlasCloud Seedance 2.0 Mini Reference-to-Video": "AtlasCloud Seedance 2.0 Mini Reference-to-Video",
+    "AtlasCloud Seedance 2.5 Text-to-Video": "AtlasCloud Seedance 2.5 Text-to-Video",
+    "AtlasCloud Seedance 2.5 Image-to-Video": "AtlasCloud Seedance 2.5 Image-to-Video",
+    "AtlasCloud Seedance 2.5 Reference-to-Video": "AtlasCloud Seedance 2.5 Reference-to-Video",
     "AtlasCloud Avatar Omni Human 1.5": "AtlasCloud Avatar Omni Human 1.5",
     "AtlasCloud Image Upscaler": "AtlasCloud Image Upscaler",
     "AtlasCloud Face Swap (Image)": "AtlasCloud Face Swap (Image)",
@@ -898,6 +1039,10 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Seedream V4.5 Edit": "AtlasCloud Seedream V4.5 Edit",
     "AtlasCloud Seedream V4.5 Sequential Text-to-Image": "AtlasCloud Seedream V4.5 Sequential Text-to-Image",
     "AtlasCloud Seedream V4.5 Edit Sequential": "AtlasCloud Seedream V4.5 Edit Sequential",
+    "AtlasCloud Seedream V4.7 Text-to-Image": "AtlasCloud Seedream V4.7 Text-to-Image",
+    "AtlasCloud Seedream V4.7 Sequential Text-to-Image": "AtlasCloud Seedream V4.7 Sequential Text-to-Image",
+    "AtlasCloud Seedream V4.7 Edit": "AtlasCloud Seedream V4.7 Edit",
+    "AtlasCloud Seedream V4.7 Edit Sequential": "AtlasCloud Seedream V4.7 Edit Sequential",
     "AtlasCloud Image Preview": "AtlasCloud Image Preview",
     "AtlasCloud ZImage Turbo Lora Text-to-Image": "AtlasCloud ZImage Turbo Lora Text-to-Image",
     "AtlasCloud ZImage Turbo Text-to-Image": "AtlasCloud ZImage Turbo Text-to-Image",
@@ -912,10 +1057,7 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Video Preview": "AtlasCloud Video Preview",
     "AtlasCloud Image to Base64": "AtlasCloud Image to Base64",
     "AtlasCloud Multi Image to Base64": "AtlasCloud Multi Image to Base64",
-    "AtlasCloud Multi Image to Base64 (30)": "AtlasCloud Multi Image to Base64 (30)",
     "AtlasCloud Upload Videos to Asset": "AtlasCloud Upload Videos to Asset",
-    "AtlasCloud Upload Videos to Asset (10)": "AtlasCloud Upload Videos to Asset (10)",
-    "AtlasCloud Upload Audios to Asset (10)": "AtlasCloud Upload Audios to Asset (10)",
     "AtlasCloud Upload Audio to Asset": "AtlasCloud Upload Audio to Asset",
     "AtlasCloud Multi Image to Seedance Assets": "AtlasCloud Multi Image to Seedance Assets",
     "AtlasCloud Kling V3.0 Pro Text-to-Video": "AtlasCloud Kling V3.0 Pro Text-to-Video",
@@ -979,6 +1121,12 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Youchuan V8.1 Blend": "AtlasCloud Youchuan V8.1 Blend",
     "AtlasCloud Youchuan V8.1 Remove Background": "AtlasCloud Youchuan V8.1 Remove Background",
     "AtlasCloud Youchuan V8.1 Style Transfer": "AtlasCloud Youchuan V8.1 Style Transfer",
+    "AtlasCloud Youchuan V8.2 Image-to-Video": "AtlasCloud Youchuan V8.2 Image-to-Video",
+    "AtlasCloud Youchuan V8.2 Text-to-Image": "AtlasCloud Youchuan V8.2 Text-to-Image",
+    "AtlasCloud Youchuan V8.2 Image-to-Image": "AtlasCloud Youchuan V8.2 Image-to-Image",
+    "AtlasCloud Youchuan V8.2 Blend": "AtlasCloud Youchuan V8.2 Blend",
+    "AtlasCloud Youchuan V8.2 Remove Background": "AtlasCloud Youchuan V8.2 Remove Background",
+    "AtlasCloud Youchuan V8.2 Style Transfer": "AtlasCloud Youchuan V8.2 Style Transfer",
     "AtlasCloud Kling V3.0 4K Image-to-Video": "AtlasCloud Kling V3.0 4K Image-to-Video",
     "AtlasCloud Kling V3.0 4K Text-to-Video": "AtlasCloud Kling V3.0 4K Text-to-Video",
     "AtlasCloud Kling V3.0 Turbo Image-to-Video": "AtlasCloud Kling V3.0 Turbo Image-to-Video",
@@ -999,6 +1147,11 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Gemini Omni Flash Image-to-Video": "AtlasCloud Gemini Omni Flash Image-to-Video",
     "AtlasCloud Gemini Omni Flash Reference-to-Video": "AtlasCloud Gemini Omni Flash Reference-to-Video",
     "AtlasCloud Gemini Omni Flash Video Edit": "AtlasCloud Gemini Omni Flash Video Edit",
+    "AtlasCloud Gemini Omni 1.1 Flash Text-to-Video": "AtlasCloud Gemini Omni 1.1 Flash Text-to-Video",
+    "AtlasCloud Gemini Omni 1.1 Flash Image-to-Video": "AtlasCloud Gemini Omni 1.1 Flash Image-to-Video",
+    "AtlasCloud Gemini Omni 1.1 Flash Reference-to-Video": "AtlasCloud Gemini Omni 1.1 Flash Reference-to-Video",
+    "AtlasCloud Gemini Omni 1.1 Flash Video Edit": "AtlasCloud Gemini Omni 1.1 Flash Video Edit",
+    "AtlasCloud Gemini Omni 1.1 Flash Video Extend": "AtlasCloud Gemini Omni 1.1 Flash Video Extend",
     "AtlasCloud VEO3.1 Reference-to-Video": "AtlasCloud VEO3.1 Reference-to-Video",
     "AtlasCloud VEO3.1 Image-to-Video": "AtlasCloud VEO3.1 Image-to-Video",
     "AtlasCloud VEO3 Image-to-Video": "AtlasCloud VEO3 Image-to-Video",
@@ -1026,6 +1179,23 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Wan 2.2 Turbo Spicy Infinite Image-to-Video LoRA": "AtlasCloud Wan 2.2 Turbo Spicy Infinite Image-to-Video LoRA",
     "AtlasCloud WAN2.6 Spicy Image-to-Video": "AtlasCloud WAN2.6 Spicy Image-to-Video",
     "AtlasCloud WAN2.7 Spicy Image-to-Video": "AtlasCloud WAN2.7 Spicy Image-to-Video",
+    "AtlasCloud WAN2.7 Spicy Reference-to-Video": "AtlasCloud WAN2.7 Spicy Reference-to-Video",
+    "AtlasCloud MiniMax H3 Text-to-Video": "AtlasCloud MiniMax H3 Text-to-Video",
+    "AtlasCloud MiniMax H3 Image-to-Video": "AtlasCloud MiniMax H3 Image-to-Video",
+    "AtlasCloud MiniMax H3 Reference-to-Video": "AtlasCloud MiniMax H3 Reference-to-Video",
+    "AtlasCloud MiniMax H3-Developer Text-to-Video": "AtlasCloud MiniMax H3-Developer Text-to-Video",
+    "AtlasCloud MiniMax H3-Developer Image-to-Video": "AtlasCloud MiniMax H3-Developer Image-to-Video",
+    "AtlasCloud MiniMax H3-Developer Reference-to-Video": "AtlasCloud MiniMax H3-Developer Reference-to-Video",
+    "AtlasCloud MiniMax H3 Max Text-to-Video": "AtlasCloud MiniMax H3 Max Text-to-Video",
+    "AtlasCloud MiniMax H3 Max Image-to-Video": "AtlasCloud MiniMax H3 Max Image-to-Video",
+    "AtlasCloud MiniMax H3 Max Turbo Text-to-Video": "AtlasCloud MiniMax H3 Max Turbo Text-to-Video",
+    "AtlasCloud MiniMax H3 Max Turbo Image-to-Video": "AtlasCloud MiniMax H3 Max Turbo Image-to-Video",
+    "AtlasCloud MiniMax H3 Fast Text-to-Video": "AtlasCloud MiniMax H3 Fast Text-to-Video",
+    "AtlasCloud MiniMax H3 Fast Image-to-Video": "AtlasCloud MiniMax H3 Fast Image-to-Video",
+    "AtlasCloud MiniMax H3 Fast Reference-to-Video": "AtlasCloud MiniMax H3 Fast Reference-to-Video",
+    "AtlasCloud Tencent Image Upscaler": "AtlasCloud Tencent Image Upscaler",
+    "AtlasCloud Tencent Video Upscaler": "AtlasCloud Tencent Video Upscaler",
+    "AtlasCloud BytePlus Video Upscaler": "AtlasCloud BytePlus Video Upscaler",
     "AtlasCloud Imagen4 Ultra Text-to-Image": "AtlasCloud Imagen4 Ultra Text-to-Image",
     "AtlasCloud Imagen3 Text-to-Image": "AtlasCloud Imagen3 Text-to-Image",
     "AtlasCloud Imagen3 Fast Text-to-Image": "AtlasCloud Imagen3 Fast Text-to-Image",
@@ -1066,6 +1236,22 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Qwen Image 2.0 Edit": "AtlasCloud Qwen Image 2.0 Edit",
     "AtlasCloud Qwen Image 2.0 Pro Text-to-Image": "AtlasCloud Qwen Image 2.0 Pro Text-to-Image",
     "AtlasCloud Qwen Image 2.0 Pro Edit": "AtlasCloud Qwen Image 2.0 Pro Edit",
+    "AtlasCloud Qwen Image 3.0 Text-to-Image": "AtlasCloud Qwen Image 3.0 Text-to-Image",
+    "AtlasCloud Qwen Image 3.0 Edit": "AtlasCloud Qwen Image 3.0 Edit",
+    "AtlasCloud Qwen Image 3.0 Pro Text-to-Image": "AtlasCloud Qwen Image 3.0 Pro Text-to-Image",
+    "AtlasCloud Qwen Image 3.0 Pro Edit": "AtlasCloud Qwen Image 3.0 Pro Edit",
+    "AtlasCloud Studio Product Visuals": "AtlasCloud Studio Product Visuals",
+    "AtlasCloud WAN3.0 Text-to-Video": "AtlasCloud WAN3.0 Text-to-Video",
+    "AtlasCloud WAN3.0 Image-to-Video": "AtlasCloud WAN3.0 Image-to-Video",
+    "AtlasCloud WAN3.0 Reference-to-Video": "AtlasCloud WAN3.0 Reference-to-Video",
+    "AtlasCloud WAN3.0-Prime Text-to-Video": "AtlasCloud WAN3.0-Prime Text-to-Video",
+    "AtlasCloud WAN3.0-Prime Image-to-Video": "AtlasCloud WAN3.0-Prime Image-to-Video",
+    "AtlasCloud WAN3.0-Prime Reference-to-Video": "AtlasCloud WAN3.0-Prime Reference-to-Video",
+    "AtlasCloud Studio Food Motion": "AtlasCloud Studio Food Motion",
+    "AtlasCloud Studio Virtual Try-On": "AtlasCloud Studio Virtual Try-On",
+    "AtlasCloud Studio UGC Ad": "AtlasCloud Studio UGC Ad",
+    "AtlasCloud Studio Trend Remix": "AtlasCloud Studio Trend Remix",
+    "AtlasCloud Studio TVC Maker": "AtlasCloud Studio TVC Maker",
     "AtlasCloud Seedance V1 Pro Fast Text-to-Video": "AtlasCloud Seedance V1 Pro Fast Text-to-Video",
     "AtlasCloud Seedance V1 Pro Fast Image-to-Video": "AtlasCloud Seedance V1 Pro Fast Image-to-Video",
     "AtlasCloud Seedance V1 Pro Image-to-Video 1080p": "AtlasCloud Seedance V1 Pro Image-to-Video 1080p",
@@ -1105,6 +1291,10 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Grok Imagine IQ Edit": "AtlasCloud Grok Imagine IQ Edit",
     "AtlasCloud Grok Imagine Text-to-Image": "AtlasCloud Grok Imagine Text-to-Image",
     "AtlasCloud Grok Imagine Edit": "AtlasCloud Grok Imagine Edit",
+    "AtlasCloud Grok Imagine Image 2.0 Text-to-Image": "AtlasCloud Grok Imagine Image 2.0 Text-to-Image",
+    "AtlasCloud Grok Imagine Image 2.0 Edit": "AtlasCloud Grok Imagine Image 2.0 Edit",
+    "AtlasCloud Grok Imagine Image 2.0 Developer Text-to-Image": "AtlasCloud Grok Imagine Image 2.0 Developer Text-to-Image",
+    "AtlasCloud Grok Imagine Image 2.0 Developer Edit": "AtlasCloud Grok Imagine Image 2.0 Developer Edit",
     "AtlasCloud Kling V2.0 I2V Master": "AtlasCloud Kling V2.0 I2V Master",
     "AtlasCloud VEO3 Fast Image-to-Video": "AtlasCloud VEO3 Fast Image-to-Video",
     "AtlasCloud Kling V2.1 T2V Master": "AtlasCloud Kling V2.1 T2V Master",
@@ -1133,6 +1323,11 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud Grok Imagine Video Image-to-Video": "AtlasCloud Grok Imagine Video Image-to-Video",
     "AtlasCloud Grok Imagine Video v1.5 Image-to-Video": "AtlasCloud Grok Imagine Video v1.5 Image-to-Video",
     "AtlasCloud Grok Imagine Video Reference-to-Video": "AtlasCloud Grok Imagine Video Reference-to-Video",
+    "AtlasCloud Grok Imagine Video v1.5 Text-to-Video": "AtlasCloud Grok Imagine Video v1.5 Text-to-Video",
+    "AtlasCloud Grok Imagine Video v1.5 Reference-to-Video": "AtlasCloud Grok Imagine Video v1.5 Reference-to-Video",
+    "AtlasCloud Grok Imagine Video v1.5 Developer Text-to-Video": "AtlasCloud Grok Imagine Video v1.5 Developer Text-to-Video",
+    "AtlasCloud Grok Imagine Video v1.5 Developer Image-to-Video": "AtlasCloud Grok Imagine Video v1.5 Developer Image-to-Video",
+    "AtlasCloud Grok Imagine Video v1.5 Developer Reference-to-Video": "AtlasCloud Grok Imagine Video v1.5 Developer Reference-to-Video",
     "AtlasCloud FLUX.2 Pro Text-to-Image": "AtlasCloud FLUX.2 Pro Text-to-Image",
     "AtlasCloud FLUX.2 Flex Edit": "AtlasCloud FLUX.2 Flex Edit",
     "AtlasCloud FLUX.2 Pro Edit": "AtlasCloud FLUX.2 Pro Edit",
@@ -1147,6 +1342,7 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud VEED Lipsync": "AtlasCloud VEED Lipsync",
     "AtlasCloud Seedream V5.0 Pro Text-to-Image": "AtlasCloud Seedream V5.0 Pro Text-to-Image",
     "AtlasCloud Seedream V5.0 Pro Edit": "AtlasCloud Seedream V5.0 Pro Edit",
+    "AtlasCloud Seedream V5.0 Pro Layer Decomposition": "AtlasCloud Seedream V5.0 Pro Layer Decomposition",
     "AtlasCloud Cosmos 3 Super Text-to-Image": "AtlasCloud Cosmos 3 Super Text-to-Image",
     "AtlasCloud Cosmos 3 Super Image-to-Video": "AtlasCloud Cosmos 3 Super Image-to-Video",
     "AtlasCloud Ideogram V4 Turbo Text-to-Image": "AtlasCloud Ideogram V4 Turbo Text-to-Image",
@@ -1154,6 +1350,24 @@ NODE_DISPLAY_NAME_MAPPINGS: Dict[str, str] = {
     "AtlasCloud LTX 2.3 Quality Text-to-Video": "AtlasCloud LTX 2.3 Quality Text-to-Video",
     "AtlasCloud LTX 2.3 Quality Image-to-Video": "AtlasCloud LTX 2.3 Quality Image-to-Video",
     "AtlasCloud LTX 2.3 Quality Extend Video": "AtlasCloud LTX 2.3 Quality Extend Video",
+    "AtlasCloud FLUX 3 Text-to-Video": "AtlasCloud FLUX 3 Text-to-Video",
+    "AtlasCloud FLUX 3 Image-to-Video": "AtlasCloud FLUX 3 Image-to-Video",
+    "AtlasCloud FLUX 3 First & Last Frame to Video": "AtlasCloud FLUX 3 First & Last Frame to Video",
+    "AtlasCloud FLUX 3 Keyframes to Video": "AtlasCloud FLUX 3 Keyframes to Video",
+    "AtlasCloud FLUX 3 Extend Video": "AtlasCloud FLUX 3 Extend Video",
+    "AtlasCloud Kling V3.0 Pro Motion Control": "AtlasCloud Kling V3.0 Pro Motion Control",
+    "AtlasCloud Kling V3.0 Std Motion Control": "AtlasCloud Kling V3.0 Std Motion Control",
+    "AtlasCloud MAI-Image-2.6 Text-to-Image": "AtlasCloud MAI-Image-2.6 Text-to-Image",
+    "AtlasCloud MAI-Image-2.6-Flash Text-to-Image": "AtlasCloud MAI-Image-2.6-Flash Text-to-Image",
+    "AtlasCloud MAI-Image-2.6 Edit": "AtlasCloud MAI-Image-2.6 Edit",
+    "AtlasCloud MAI-Image-2.6-Flash Edit": "AtlasCloud MAI-Image-2.6-Flash Edit",
+    # community edition additions
+    "AtlasCloud Kling V3.0 Pro Motion-Control": "AtlasCloud Kling V3.0 Pro Motion-Control",
+    "AtlasCloud Kling V3.0 Std Motion-Control": "AtlasCloud Kling V3.0 Std Motion-Control",
+    "AtlasCloud Seedance 2.5 Reference-to-Video (Multi 30img/10vid)": "AtlasCloud Seedance 2.5 Reference-to-Video (Multi 30img/10vid)",
+    "AtlasCloud Multi Image to Base64 (30)": "AtlasCloud Multi Image to Base64 (30)",
+    "AtlasCloud Upload Videos to Asset (10)": "AtlasCloud Upload Videos to Asset (10)",
+    "AtlasCloud Upload Audios to Asset (10)": "AtlasCloud Upload Audios to Asset (10)",
     "AtlasCloud Seed3D 2.0 Image-to-3D": "AtlasCloud Seed3D 2.0 Image-to-3D",
     "AtlasCloud Hunyuan3D Rapid Image-to-3D": "AtlasCloud Hunyuan3D Rapid Image-to-3D",
     "AtlasCloud Hunyuan3D Rapid Text-to-3D": "AtlasCloud Hunyuan3D Rapid Text-to-3D",

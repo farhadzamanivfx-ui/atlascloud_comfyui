@@ -64,6 +64,9 @@ class AtlasDownloadModel3D:
 
     CATEGORY = "AtlasCloud/Utils"
     FUNCTION = "run"
+    # Without this, a graph that ends here has no output node and ComfyUI
+    # refuses to queue it ("Prompt has no outputs"), same as the preview nodes.
+    OUTPUT_NODE = True
 
     RETURN_TYPES = ("STRING", "STRING")
     RETURN_NAMES = ("model_file", "local_path")

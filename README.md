@@ -588,6 +588,8 @@ In ComfyUI open **Manager → Install via Git URL**, paste `https://github.com/f
 
 These nodes live under the **AtlasCloud/3D** category and return a `model_url` pointing at the generated mesh. Feed that into **AtlasCloud Download 3D Model**, which saves the file under `output/atlascloud3d/` (unpacking the `.zip` that some formats are delivered in) and hands back a path you can wire straight into ComfyUI's **Preview 3D** or **Load 3D**.
 
+> **AtlasCloud Download 3D Model** is the output node of a 3D chain, so end the graph there. A generation node on its own gives "Prompt has no outputs" and ComfyUI will not queue the run.
+
 | Node | Model |
 |------|-------|
 | AtlasCloud Seed3D 2.0 Image-to-3D | bytedance/seed3d-v2.0/image-to-3d |

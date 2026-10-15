@@ -12,6 +12,11 @@ that takes an ``ATLAS_CLIENT`` input into such an async node -- the original
 blocking body is pushed onto a worker thread -- so independent Atlas branches of
 a workflow fire their POST at roughly the same time and then poll side by side.
 
+The download/preview nodes that turn a result URL into a local file (see
+``_DOWNLOAD_NODES``) are made async too, so several results download side by
+side instead of one after another. They run outside the job gate and keep
+their normal caching.
+
 Patched nodes also get ``NOT_IDEMPOTENT = True``, which puts the node id into
 ComfyUI's cache signature. Without it, several *identical* Atlas nodes in one
 graph collapse into a single cache entry and only one of them would really run.
@@ -24,6 +29,7 @@ Environment variables (read live, no restart needed except where noted):
   ATLASCLOUD_MAX_PARALLEL         Atlas jobs in flight at once (default 4)
   ATLASCLOUD_SUBMIT_STAGGER_SEC   min gap between two submissions (default 0.25)
   ATLASCLOUD_SUBMIT_RETRIES       retries on 429/5xx at submit time (default 4)
+  ATLASCLOUD_JOB_RETRIES          resubmits after a transient job failure (default 3)
 """
 
 from __future__ import annotations
@@ -32,6 +38,7 @@ import asyncio
 import inspect
 import os
 import random
+import re
 import time
 from typing import Any, Callable, Dict, Optional
 
@@ -41,6 +48,21 @@ _ORIGINAL_ATTR = "__atlascloud_original__"
 # Submit-time statuses that are worth another shot: rate limits, and the
 # transient gateway errors a burst of concurrent requests tends to provoke.
 _RETRY_STATUS = frozenset({408, 425, 429, 500, 502, 503, 504})
+
+# Jobs that were accepted but then failed for a reason that clears up by itself:
+#   1010000  reference asset(s) are still being prepared
+#   1013003  upstream rate limit triggered
+# The whole node is re-run, i.e. the job is resubmitted.
+_RETRY_JOB_CODES = frozenset({"1010000", "1013003"})
+_JOB_CODE_RE = re.compile(r"\(error_code=(\d+)\)\s*$")
+
+# Nodes without an ATLAS_CLIENT input that still block on the network: they
+# download a finished result from its URL.
+_DOWNLOAD_NODES = frozenset({
+    "AtlasCloud Download 3D Model",
+    "AtlasCloud Image Preview",
+    "AtlasCloud Video Preview",
+})
 
 
 def _env_bool(name: str, default: bool) -> bool:
@@ -157,9 +179,26 @@ def _wrap(cls: Any, func_name: str) -> None:
     async def _atlas_parallel_run(self, *args, **kwargs):
         await _GATE.acquire()
         try:
-            # to_thread copies the current context, so ComfyUI's executing-node
-            # contextvar (progress bars, previews) still resolves correctly.
-            return await asyncio.to_thread(original, self, *args, **kwargs)
+            attempts = max(0, _env_int("ATLASCLOUD_JOB_RETRIES", 3))
+            delay = 10.0
+            for attempt in range(attempts + 1):
+                try:
+                    # to_thread copies the current context, so ComfyUI's executing-node
+                    # contextvar (progress bars, previews) still resolves correctly.
+                    return await asyncio.to_thread(original, self, *args, **kwargs)
+                except Exception as exc:
+                    match = _JOB_CODE_RE.search(str(exc))
+                    if attempt >= attempts or not match or match.group(1) not in _RETRY_JOB_CODES:
+                        raise
+                    wait = delay + random.uniform(0.0, 2.0)
+                    print(
+                        "[AtlasCloud] job failed with error_code={}; resubmitting in {:.1f}s ({}/{})".format(
+                            match.group(1), wait, attempt + 1, attempts
+                        )
+                    )
+                    await asyncio.sleep(wait)
+                    delay = min(delay * 2.0, 60.0)
+            raise RuntimeError("unreachable")  # pragma: no cover
         finally:
             _GATE.release()
 
@@ -168,6 +207,19 @@ def _wrap(cls: Any, func_name: str) -> None:
     _atlas_parallel_run.__doc__ = getattr(original, "__doc__", None)
     setattr(_atlas_parallel_run, _ORIGINAL_ATTR, original)
     setattr(cls, func_name, _atlas_parallel_run)
+
+
+def _wrap_download(cls: Any, func_name: str) -> None:
+    original: Callable[..., Any] = getattr(cls, func_name)
+
+    async def _atlas_parallel_download(self, *args, **kwargs):
+        return await asyncio.to_thread(original, self, *args, **kwargs)
+
+    _atlas_parallel_download.__name__ = getattr(original, "__name__", func_name)
+    _atlas_parallel_download.__qualname__ = getattr(original, "__qualname__", func_name)
+    _atlas_parallel_download.__doc__ = getattr(original, "__doc__", None)
+    setattr(_atlas_parallel_download, _ORIGINAL_ATTR, original)
+    setattr(cls, func_name, _atlas_parallel_download)
 
 
 def _retry_after_seconds(exc: Exception) -> Optional[float]:
@@ -228,6 +280,7 @@ def enable_parallel(node_class_mappings: Dict[str, Any]) -> int:
         print("[AtlasCloud] could not install submit retry:", repr(exc))
 
     patched = 0
+    downloads = 0
     for name, cls in list((node_class_mappings or {}).items()):
         try:
             func_name = getattr(cls, "FUNCTION", None)
@@ -238,6 +291,10 @@ def enable_parallel(node_class_mappings: Dict[str, Any]) -> int:
                 continue
             if getattr(func, _ORIGINAL_ATTR, None) is not None:
                 continue  # already wrapped, possibly via a base class
+            if name in _DOWNLOAD_NODES:
+                _wrap_download(cls, func_name)
+                downloads += 1
+                continue
             if not _uses_atlas_client(cls):
                 continue
             _wrap(cls, func_name)
@@ -248,9 +305,9 @@ def enable_parallel(node_class_mappings: Dict[str, Any]) -> int:
             print("[AtlasCloud] could not parallelise {}:".format(name), repr(exc))
 
     print(
-        "[AtlasCloud] parallel execution enabled for {} nodes "
+        "[AtlasCloud] parallel execution enabled for {} nodes + {} download nodes "
         "(max {} jobs in flight; set ATLASCLOUD_MAX_PARALLEL to change)".format(
-            patched, _ConcurrencyGate.limit()
+            patched, downloads, _ConcurrencyGate.limit()
         )
     )
     return patched
